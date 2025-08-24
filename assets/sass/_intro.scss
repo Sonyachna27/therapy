@@ -171,6 +171,7 @@
 		flex-direction: column;
 		border-radius: 0 20px 20px 20px;
 		padding: 17px 20px 90px 20px;
+		background-color: rgb(130 137 149);
 		@media screen and (min-width:1024px) {
 			grid-column: 2 / 3;
 			grid-row: 1 / 3;
@@ -196,12 +197,13 @@
 		}
 		@media screen and (min-width:768px){
 		padding: 35px;
+		background: $--block-grey;
 		}
 
 		&:before{
 			content: "";
 			display: inline-block;
-			background: transparent url(../images/grey-block-after.png) center center no-repeat;
+			background: transparent url(../images/1.png) center center no-repeat;
 			position: absolute;
 			left: 0px;
 			top: -14px;
@@ -216,14 +218,15 @@
         transform: scale(-1);
 			}
 			@media screen  and (min-width:768px) and (max-width:1199.9px){
-				        background-image: url(../images/hero-after-img-desk.png);
         width: 20px;
         height: 20px;
         top: -19px;
         left: -3px;
         background-size: auto 20px;
 			}
-
+			@media screen and (min-width:768px) {
+				background-image: url(../images/ico_bdir_desk.png);
+			}
  		}
 		.intro__info__text{
 			display: flex;

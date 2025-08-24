@@ -10,16 +10,21 @@
 	}
 	&__top{
 		position: relative;
+		padding-top: 150px;
+		@media screen and (min-width:768px) {
+			padding-top: 300px;
+		}
 	}
 	&__info{
 		position: absolute;
     // top: 80px;
     // top: -55px;
+		top: 0;
     z-index: 3;
     width: calc(100% - 20px);
-			// @media screen and (min-width: 1920px) { 
-			// 	top: -12px;
-			// }
+			@media screen and (min-width: 1920px) { 
+				top: -12px;
+			}
 			&-item{
 				background: $--white;
 				border-radius: 10px 10px 10px 0;
@@ -109,57 +114,43 @@
 	}
 	&__img{
 		width: 100vw;
-    margin-top: -45px;
-		// position: relative;
 		z-index: -1;
 		position: absolute;
-		// height: calc(100vh - 100px);
 		height: auto;
 		object-fit: cover;
-		object-position: center;
-		@media  screen and (min-width:1920px) {
-		//  margin-top: -70px;
-    }
-		@media  screen and (min-width:1024px) and (max-width:1919.9px) {
-		 margin-top:-50px;
-    }
-		@media  screen and (min-width:768px) and (max-width:1023.9px) {
-		 margin-top: -40px;
-    }
-		
+		object-position: center;	
+		top: 60%;	
+		@media screen and (min-width:768px) {
+			top: 36%;
+		}		
 	}
-	&__content{		
-		
+	&__content{			
 		display: flex;
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
 		border-radius: 48px;
 		position: relative;
-		
 		-webkit-align-items: center;
 		-ms-flex-align: center;
 		align-items: center;
 		justify-content: space-between;		
-		gap: 27px;
-		
+		gap: 27px;		
 		@media screen and (min-width:1920px) {
 			padding: 80px;
-			// margin-top: auto;
 		}
 		@media screen and (min-width:768px) and (max-width:1919.9px) {
 				padding: 40px;
-				// margin-top: 20vw;
 		}
 		@media screen and (min-width:768px) {
 			flex-direction: row;
 			background: linear-gradient(0deg, rgba(184, 184, 184, 0.14), rgba(184, 184, 184, 0.14)), linear-gradient(72.39deg, rgba(255, 255, 255, 0) 4.84%, rgba(0, 37, 65, 0.5) 100%);
 		-webkit-backdrop-filter: blur(49px);
 		backdrop-filter: blur(49px);
-		// margin-top: -121px;
 		}
 		@media screen and (max-width:767.9px) {
 			margin-top: 30vw;
+			gap: 20px;
 		}
 		&__body{
 			display: flex;
@@ -194,10 +185,10 @@
 		-webkit-backdrop-filter: blur(49px);
 		backdrop-filter: blur(49px);
 		border-radius: 40px;    
-		padding: 26px 20px;
+		padding: 20px;
 		width: 100%;
 			}
-			h1{
+			.titleH1{
 				@media screen and (min-width:1690px) {
 				max-width: 624px;
         width: 60%;
@@ -240,7 +231,7 @@
 				width: 30%;
 			}
 				@media screen and (max-width:767.9px) {
-				    padding: 30px 20px 39px 20px;
+				    padding: 20px 20px 25px 20px;
     				width: 100%;
 			}
 				@media screen and (min-width:1024px) and (max-width:1689.9px) {
