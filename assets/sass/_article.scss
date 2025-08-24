@@ -1,0 +1,38 @@
+.article{
+		padding: 15px;
+		border-radius: 30px;
+		border: 2px solid #EAEBED;
+		background: #FFF;
+		margin-bottom: 20px;
+		@media screen and (min-width:768px) {
+			padding: 60px;
+		}
+		
+	}
+
+.public{
+	border-radius: 20px;
+	background: #EFF3F3;
+	padding: 20px 30px;
+	font-size: 24px;
+	font-style: normal;
+	line-height: 120%;
+	color: $--green;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	flex-direction: column;
+	font-weight: 700;
+	span{
+		color: $--green-50;
+		font-weight: 500;
+	}
+	p{
+		margin-bottom: 0;
+	}
+	@media screen and (min-width:768px) {
+		padding: 30px;
+		flex-direction: row;
+	}
+}

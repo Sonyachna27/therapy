@@ -1,0 +1,46 @@
+.lang {
+    position: relative;
+    cursor: pointer;
+}
+
+.lang__current {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+ul.lang__dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+    min-width: 100px;
+    transition: all .5s;
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+ul.lang__dropdown li {
+    padding: 0;
+    white-space: nowrap;
+}
+
+.lang__dropdown li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang:hover .lang__dropdown {
+    opacity: 1;
+    visibility: visible;
+}

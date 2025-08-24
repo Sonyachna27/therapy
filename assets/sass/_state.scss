@@ -1,0 +1,143 @@
+.state{
+	& .article{
+		margin-bottom: 30px;
+		@media screen and (min-width:768px) {
+			margin-bottom: 60px;
+		}
+	}
+	& img{
+		max-width: 100%;
+		max-height: 428px;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 30px;
+		margin-bottom: 20px;
+	}
+	& .article img{
+		margin-bottom: 10px;
+	}
+	& .article p:has(+a){
+		margin-bottom: 5px;
+	}
+	& .article a:has(+img),
+	& .article a:has(+p){
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	&__info{
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 15px;
+		color: $--green;
+		margin-bottom: 20px;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 140%; 
+		flex-wrap: wrap;
+		opacity: .8;
+		@media screen and (min-width:768px){
+			margin-bottom: 50px;
+		}
+		& a,
+		span{
+			color: inherit;
+			text-decoration: none;
+			display: inline-flex;
+			align-items: center;
+			gap: 4px;
+			font: inherit;
+		}
+		a{
+			svg path{
+				transition: .2s linear;
+			}
+			&:hover{
+				
+				svg {
+					stroke: $--gold;
+				}
+			}
+		}
+	}
+	&__share{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		padding-top: 40px;
+		border-top: 3px solid #EAEBED;
+		flex-wrap: wrap;
+		margin-top: 10px;
+		span{
+			color: $--black;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 120%;
+			@media screen and (min-width:768px) {
+				font-size: 24px;
+			}
+		}
+	}
+	&__autor{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		@media screen and (min-width:768px) {
+			flex-direction: row;
+		align-items: flex-start;
+		}
+		& img{
+			max-width: 300px;
+			max-height: 300px;
+			border-radius: 30px;
+			width: 100%;
+			height: 100%;
+
+		}
+		&__info{
+			border: 2px solid #EAEBED;
+			background: #F5F3F1;
+			border-radius: 15px;
+				padding: 15px;
+			.autor &{
+				background-color: $--white;
+			}
+			@media screen and (min-width:768px) {
+				padding: 40px;
+				border-radius: 30px;
+			}
+			span{
+					padding: 4px 6px;
+					border-radius: 8px;
+					background: #EBF0F0;
+					font-size: 14px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 120%; /* 16.8px */
+					letter-spacing: -0.14px;
+					margin-bottom: 5px;
+					display: inline-block;
+				
+			}
+		div{
+			@include titleH4;
+			margin-bottom: 10px;
+		}
+		p{
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 140%; /* 25.2px */
+			letter-spacing: 0.16px;
+			@media screen and (min-width:768px) {
+				font-size: 18px;
+				letter-spacing: 0.18px;
+			}
+		}
+		}
+	}
+}

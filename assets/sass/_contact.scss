@@ -1,0 +1,82 @@
+.contact{
+	&__container{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		@media screen and (min-width:768px) {
+			gap: 20px;
+		}
+	}
+	&__item{
+		display: flex;
+		flex-direction: column;
+		padding: 30px;
+		border-radius: 30px;
+		background: #F5F3F1;
+		width: 100%;
+		@media screen and (min-width:768px) and (max-width:1023.9px) {
+			width: calc((100% / 2) - 20px);
+		}
+		@media screen and (min-width:1024px) {
+			width: calc((100% / 3) - 20px);
+		}
+		img{
+			max-width: 80px;
+			max-height: 80px;
+			width: 100%;
+			height: 100%;
+			margin-bottom: 34px;
+		}
+		& .contact-links{
+			justify-content: flex-start;
+		}
+		&__content{
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			margin-bottom: 30px;
+			span{
+				@include titleH4;
+			}
+			p{
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 150%; /* 24px */
+				letter-spacing: 0.16px;
+			}
+		}
+		&__bottom{
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			a,
+			div{
+				color: $--green;
+				font-size: 20px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 120%; /* 24px */
+				letter-spacing: -0.2px;
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+			}
+			&.hours span{
+				font-size: 20px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 120%; /* 24px */
+				letter-spacing: -0.2px;
+			}
+			span{
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 150%; /* 21px */
+				letter-spacing: 0.14px;
+				
+			}
+		}
+	
+	}
+}
