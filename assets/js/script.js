@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	animationHero();
 	openTabs();
 	wrapTablesInDiv();
+	servicesMore();
+	reviewsSliderInit();
 });
 
 const toggleMenu = () =>{
@@ -173,12 +175,61 @@ const openTabs = () => {
   });
 };
 
+const servicesMore = () =>{
+	const servicesContentItem = document.querySelectorAll('.services__content__item');
+	if(!servicesContentItem) return;
+	servicesContentItem.forEach((servicesItem) =>{
+		const servicesItemList = servicesItem.querySelectorAll('.services__content__item-list a');
+		if(servicesItemList.length >=1){
+			servicesItem.classList.add('has-children');
+		} else {
+			servicesItem.classList.add('zero-children');
+		}  
+	})
+}
 
 
-
-
-
-
+const reviewsSliderInit = () =>{
+	const parentReviewsSlider = document.querySelector('.reviews');
+	if(!parentReviewsSlider) return;
+	if (!parentReviewsSlider.classList.contains('withoutSlider')){
+		const reviewsSliderWrap = document.querySelector('.reviewsSlider');
+		if(!reviewsSliderWrap) return;
+		const reviewsSlider = new Swiper(reviewsSliderWrap, {
+			slidesPerView: 1.15,
+			spaceBetween: 10,
+					breakpoints: {
+			320: {
+				slidesPerView: 1.25,
+			},
+			768: {
+				slidesPerView: 1.75,
+			},
+			1024: {
+				slidesPerView: 2.25,
+			}
+		},
+			navigation: {
+				nextEl: ".reviews-button-next",
+				prevEl: ".reviews-button-prev",
+			},
+		});
+	}else{
+		const swiperReviewsElements = document.querySelector('.reviews__slider');
+		if(!swiperReviewsElements) return;
+		const childElements = swiperReviewsElements.querySelectorAll('*');
+	
+		childElements.forEach((el) => {
+			Array.from(el.classList).forEach((className) => {
+				
+				if (className.startsWith('swiper-') || className === 'swiper') {
+					el.classList.remove(className);
+					
+				}
+			});
+		});
+	}
+}
 const reviewsFormChecked = () =>{
 	const reviewForm =  document.querySelector(".reviewForm__wrap");
 	if (reviewForm) {

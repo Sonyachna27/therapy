@@ -30,6 +30,8 @@ $--grey-block-list:rgba(255, 255, 255, 0.1019607843);
 $--header-color:rgba(255, 255, 255, 0.5);
 $--tabs-bg-active:#6C7583;
 $--tabs-bg:rgba(72, 79, 91, 0.7);
+$--hover-blue:#28538F;
+$--reviews-bg:rgba(108, 117, 131, 0.6980392157);
 html.open-popup,
 html.open,
 html.search-active,
@@ -106,12 +108,12 @@ body{
 // 		color: $--green;
 // 	}
 // }
-// .mb-m{
-// 	margin-bottom: 40px;
-// 	@media screen and (min-width:768px) {
-// 		margin-bottom: 80px;
-// 	}
-// }
+.pt-m{
+	padding-top: 40px;
+	@media screen and (min-width:768px) {
+		padding-top: 60px;
+	}
+}
 .lang{
 	display: flex;
 	padding: 5px 15px;
@@ -383,4 +385,49 @@ body{
     background: rgba(255, 255, 255, 0.17);
     -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
+}
+
+.slider-arrow {
+		width: 48px;
+    height: 48px;
+    display: inline-flex;
+		align-items: center;
+		justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1882352941);
+    border-radius: 100px;
+    z-index: 33;
+		cursor: pointer;
+		transition: all .3s linear;
+		&.swiper-button-disabled{
+			opacity: .5;
+			cursor: not-allowed;
+			&:hover{
+				background-color: rgba(255, 255, 255, 0.1882352941);
+				svg{
+				path{
+					fill: $--white;
+				}
+			}
+			}
+		}
+		&.swiper-button-lock{
+			display: none;
+		}
+		&:hover{
+			background-color: $--white;
+			svg{
+				path{
+					fill: $--dark-blue;
+				}
+			}
+		}
+		svg{
+			width: 20px;
+			height: auto;
+			transition: all .3s linear;
+		}
+}
+
+.slider-next{
+transform: rotate(180deg);
 }

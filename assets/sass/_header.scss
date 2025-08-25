@@ -210,6 +210,9 @@
 				}
 			.arrow-circle{
 				transform: rotate(45deg);
+				max-width: 32px;
+				max-height: 32px;
+				border-radius: 50%;
 				@media screen and (max-width:1023.9px) {
 				display: none;
 			}
@@ -333,6 +336,7 @@
 				> a {  
 					font-size: 11px;
 					color: $--dark-blue;
+					transition: background-size 300ms ease, text-decoration 300ms ease;
 					@media screen and (min-width:1024px) {
 						background-image: linear-gradient(
 						to bottom,
@@ -342,9 +346,9 @@
 						$--dark-blue 100%
 					);
 					background-repeat: no-repeat;
+					
 					background-size: 0% 100%;
 					background-position-x: right;
-					transition: background-size 300ms ease;
 					}
 					@media screen and (min-width:1440px) {
 						font-size: 13px;
@@ -356,11 +360,11 @@
 						font-size: 18px;
 						color: $--white;
 						padding-left: 46px;
-						width: 100%;
+						width: fit-content;
 						padding: 10px 10px 10px 46px ;
 						position: relative;
-						&:hover{
-							text-decoration: underline;
+						&:hover{							
+							text-decoration: underline;				
 							color: $--white;
 						}
 						&:before{
@@ -380,10 +384,16 @@
 					
 				}
 
-				&:hover > a {
-					background-size: 100% 100%;
-					background-position-x: left;
+				&:hover {
+					@media screen and (min-width:1024px) {
+							> a {
+										background-size: 100% 100%;
+										background-position-x: left;
+									}
+					}
 				}
+				
+			
 
 				&:has(ul) { 
 					padding-right: 10px;
@@ -469,9 +479,7 @@
 						font-size: 13px;
 						transition: .3s linear;
 						@media screen and (max-width:1023.9px) {
-							&:nth-of-type(1){
-								display: none;
-							}
+						
 							width: fit-content;
 							a{
 								padding-left: 10px;
@@ -501,7 +509,8 @@
 							
 						}
 						&:nth-of-type(1){
-							position: relative;
+							@media screen and (min-width:1024px) {
+								position: relative;
 							color: $--white;
 							font-size: 18px;
 							width: 100%;
@@ -538,6 +547,7 @@
 										background-image: url(../images/arrow-white.svg);
 									
 								}
+							}
 							}
 						}
 					}
