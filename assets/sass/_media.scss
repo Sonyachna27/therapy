@@ -1,0 +1,78 @@
+.media{
+	margin-bottom: 20px;
+	&__wrapper{
+		display: flex;
+		gap: 23px;
+		flex-wrap: wrap;
+	}
+	&__item{
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		@media screen and (min-width:768px) {
+			width: calc(50% - 16px);
+		}
+		
+	}
+	&__video{
+		position: relative;
+		cursor: pointer;
+		&:after{
+			
+			content: "";
+			display: inline-block;
+			width: 64px;
+			height: 46px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 33;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			background: transparent none no-repeat center center;
+			background-size: 100% auto;
+			background-image: url(../images/ico_video.svg);
+		}
+	}
+	&__img{
+		border-radius: 14px;
+    position: relative;
+    left: 0px;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 678 / 385;
+	}
+	&__desc{
+		padding-top: 14px;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+		display: flex;
+		justify-content: space-between;
+
+
+	}
+	&__item__title{
+		font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3em;
+    letter-spacing: 0.01em;
+    color: rgb(255, 255, 255);
+    width: calc(100% - 63px);
+		@media screen and (min-width:1200px) {
+			font-size: 21px;
+        line-height: 1.2em;
+		}
+	}
+	&__year{
+		font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.01em;
+    background: rgba(255, 255, 255, 0.0705882353);
+    padding: 4px 6px;
+    border-radius: 24px;
+    position: relative;
+    left: 0px;
+	}
+}

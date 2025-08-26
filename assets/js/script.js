@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	wrapTablesInDiv();
 	servicesMore();
 	reviewsSliderInit();
+	showVideo();
+	reviewsMore();
 });
 
 const toggleMenu = () =>{
@@ -187,49 +189,53 @@ const servicesMore = () =>{
 		}  
 	})
 }
+const reviewsSliderInit = () => {
+	const reviewsSections = document.querySelectorAll('.reviews');
+	if (!reviewsSections.length) return;
 
+	const reviewsSectionsSLider = document.querySelectorAll('.reviews__slider__wrapper');
+	reviewsSectionsSLider.forEach(section => {
+		// Проверяем, нужно ли инициализировать слайдер
+		if (!section.classList.contains('withoutSlider')) {
+			const sliderContainer = section.querySelector('.reviewsSlider');
+			if (!sliderContainer) return;
 
-const reviewsSliderInit = () =>{
-	const parentReviewsSlider = document.querySelector('.reviews');
-	if(!parentReviewsSlider) return;
-	if (!parentReviewsSlider.classList.contains('withoutSlider')){
-		const reviewsSliderWrap = document.querySelector('.reviewsSlider');
-		if(!reviewsSliderWrap) return;
-		const reviewsSlider = new Swiper(reviewsSliderWrap, {
-			slidesPerView: 1.15,
-			spaceBetween: 10,
-					breakpoints: {
-			320: {
-				slidesPerView: 1.25,
-			},
-			768: {
-				slidesPerView: 1.75,
-			},
-			1024: {
-				slidesPerView: 2.25,
-			}
-		},
-			navigation: {
-				nextEl: ".reviews-button-next",
-				prevEl: ".reviews-button-prev",
-			},
-		});
-	}else{
-		const swiperReviewsElements = document.querySelector('.reviews__slider');
-		if(!swiperReviewsElements) return;
-		const childElements = swiperReviewsElements.querySelectorAll('*');
-	
-		childElements.forEach((el) => {
-			Array.from(el.classList).forEach((className) => {
-				
-				if (className.startsWith('swiper-') || className === 'swiper') {
-					el.classList.remove(className);
-					
-				}
+			// Инициализация Swiper
+			new Swiper(sliderContainer, {
+				slidesPerView: 1.15,
+				spaceBetween: 10,
+				breakpoints: {
+					320: {
+						slidesPerView: 1.25,
+					},
+					768: {
+						slidesPerView: 1.75,
+					},
+					1024: {
+						slidesPerView: 2.25,
+					}
+				},
+				navigation: {
+					nextEl: section.querySelector('.reviews-button-next'),
+					prevEl: section.querySelector('.reviews-button-prev'),
+				},
 			});
-		});
-	}
-}
+		} else {
+			const sliderWrapper = section.querySelector('.reviews__slider');
+			if (!sliderWrapper) return;
+
+			const elements = sliderWrapper.querySelectorAll('*');
+			elements.forEach(el => {
+				Array.from(el.classList).forEach(cls => {
+					if (cls.startsWith('swiper-') || cls === 'swiper') {
+						el.classList.remove(cls);
+					}
+				});
+			});
+		}
+	});
+};
+
 const reviewsFormChecked = () =>{
 	const reviewForm =  document.querySelector(".reviewForm__wrap");
 	if (reviewForm) {
@@ -295,6 +301,87 @@ const reviewsFormChecked = () =>{
     });
   }
 }
+
+const showVideo = () =>{
+const mediaVideo = document.querySelectorAll('.media__video');
+mediaVideo.forEach(block => {
+  block.addEventListener('click', () => {
+    const videoUrl = block.dataset.videoUrl;
+    if (!videoUrl) return;
+
+    const embedUrl = videoUrl
+      .replace('https://youtu.be/', 'https://www.youtube.com/embed/')
+      .replaceAll('/shorts/', '/embed/')
+      .replaceAll('watch?v=', 'embed/');
+
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', embedUrl + '?autoplay=1&rel=0&cc_load_policy=1');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', true);
+    iframe.style.width = '80%';
+    iframe.style.height = '80%';
+    iframe.style.maxWidth = '1280px';
+    iframe.style.maxHeight = '720px';
+    iframe.style.borderRadius = '8px';
+
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.8)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = '9999';
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.3s';
+    
+    overlay.appendChild(iframe);
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => overlay.style.opacity = '1');
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => document.body.removeChild(overlay), 300);
+      }
+    });
+  });
+});
+
+
+}
+const reviewsMore = () => {
+  document.querySelectorAll('.reviews__item').forEach(item => {
+    const content = item.querySelector('.reviews__bottom'); 
+    if (!content) return;
+
+    const paragraphs = content.querySelectorAll('p');
+    let totalHeight = 0;
+
+    paragraphs.forEach(p => {
+      totalHeight += p.scrollHeight;
+    });
+    if (totalHeight > content.clientHeight) {
+      const btn = document.createElement('button');
+      btn.textContent = 'Розгорнути';
+      btn.className = 'reviews__expand-btn';
+
+      btn.addEventListener('click', () => {
+        content.classList.toggle('expanded');
+        btn.textContent = content.classList.contains('expanded') ? 'Згорнути' : 'Розгорнути';
+      });
+      content.insertAdjacentElement('afterend', btn);
+    }
+  });
+};
+
+
+
 
 
 /**

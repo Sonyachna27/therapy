@@ -15,9 +15,7 @@
 			display: flex;
 			align-items: center;
 			gap: 10px;
-			.reviews__arrows{
-				margin-left: auto;
-			}
+			flex-wrap: wrap;
 		}
 		&__rating{
 			display: flex;
@@ -67,7 +65,7 @@
 		}
 		.btn.btn-grey{
 			border-color: transparent;
-			padding: 10px 10px 10px 20px;
+			padding: 8px 10px 8px 20px;
 			font-size: 13px;
 			@media screen and (min-width:1024px) {
 				font-size: 14px;
@@ -78,7 +76,30 @@
 		}
 	}
 	&__slider{
-		width: calc(100% + 20px);
+		padding: 27px 0;
+		
+		width: calc(100% + 1px);
+		margin-bottom: 20px;
+		position: relative;
+		@media screen and (min-width:768px) {
+			width: calc(100% + 20px);
+		}
+		&:not(:nth-last-of-type(1)){
+			border-bottom: 1px solid $--bg-after;
+		}
+	}
+	.reviewsSlider{
+			@media screen and (max-width:1023.9px) {
+				padding-bottom: 20px;
+		}
+	}
+	&__arrows{
+		@media screen and (min-width:1024px) {
+			top: -58px;
+		right: 20px;
+		transform: translateY(-13%);
+		position: absolute;
+		}
 	}
 	&__btns{
 		display: flex;
@@ -93,7 +114,6 @@
 	&__item{
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
 		background: $--reviews-bg;
     border-radius: 19px;
     position: relative;
@@ -120,6 +140,7 @@
 			gap: 4px;
 			align-items: center;
 			justify-content: space-between;
+			margin-bottom: 20px;
 		}
 	}
 	
@@ -139,11 +160,7 @@
 			font-size: 16px;
 		}
 	}
-	hr{
-		width: 100%;
-		display: block;
-		background-color: rgba(0, 57, 68, 0.20);
-	}
+
 	&__doc{
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 9px;
@@ -189,6 +206,14 @@
     transition: max-height 0.3s ease;
     -webkit-line-clamp: 6;
     max-height: 8.4em;
+		&.expanded {
+			-webkit-line-clamp: unset;
+			max-height: 1000px; /* або auto, якщо хочеш плавність */
+		}
+		@media screen and (min-width:1024px) {
+			-webkit-line-clamp: 5;
+        max-height: 7em;
+		}
 		*{
 			line-height: 1.4em;
    	 font-size: 13px;
@@ -197,6 +222,45 @@
 			}
 
 		}
+		p{
+			margin-bottom: 0;
+		}
 		
+	}
+	&__expand-btn{
+		color: $--white;
+		position: relative;
+		display: block;
+    margin-top: 8px;
+    font-size: 11px;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		padding-right: 15px;
+		transition: .3s linear;
+		@media screen and (min-width:1024px) {
+			font-size: 13px;
+        margin-top: 23px;
+		}
+		&:hover{
+			color: $--accent-color;
+		}
+		&::after {
+    content: "";
+    width: 7px;
+    height: 5px;
+    display: inline-block;
+    background: transparent none no-repeat center center;
+    background-size: 100% auto;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 33;
+		    -webkit-filter: grayscale(1) brightness(11);
+    filter: grayscale(1) brightness(11);
+		background-image: url(../images/ico_expand.svg);
+	}
 	}
 }
