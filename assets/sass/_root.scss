@@ -33,6 +33,8 @@ $--tabs-bg-active:#6C7583;
 $--tabs-bg:rgba(72, 79, 91, 0.7);
 $--hover-blue:#28538F;
 $--reviews-bg:rgba(108, 117, 131, 0.6980392157);
+$--links-bg:rgba(249, 251, 255, 0.2);
+$--links-hover:rgba(249, 251, 255, 0.4);
 html.open-popup,
 html.open,
 html.search-active,
@@ -67,48 +69,9 @@ body{
 	background-repeat: no-repeat;
 	
 }
-// .page-main{
-// 	display: flex;
-// 	gap: 20px;
-// 	margin-top: 20px;
-// }
-// .main-content{
-// 	width: 100%;
-// 	@media screen and (min-width:1240px) {
-// 		width: calc(100% - 21.5% - 20px);
-// 	}
-// 	.woocommerce-checkout & {
-// 		width: 100%;
-// 	}
-// }
-// .justify-title{
-// 	display: flex;
-// 	align-items: flex-start;
-// 	justify-content: space-between;
-// 	gap: 10px;
-// 	margin-bottom: 20px;
-// 	flex-direction: column;
-// 	@media screen and (min-width:768px) {
-// 		margin-bottom: 40px;
-// 		gap: 20px;
-// 		flex-direction: row;
-// 		align-items: center;
-// 	}
-// 	h2{
-		
-// 		margin-bottom: 0;
-// 	}
-//  & a:not([class]){
-// 		font-size: 14px;
-// 		font-style: normal;
-// 		font-weight: 500;
-// 		line-height: 140%; /* 19.6px */
-// 		letter-spacing: -0.14px;
-// 		text-decoration-line: underline;
-// 		text-decoration-style: solid;
-// 		color: $--green;
-// 	}
-// }
+.titleH1{
+	@include titleH1;
+}
 .pt-m{
 	padding-top: 40px;
 	@media screen and (min-width:768px) {

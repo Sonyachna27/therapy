@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	reviewsSliderInit();
 	showVideo();
 	reviewsMore();
+	linksMore();
+	showMoreContent();
 });
 
 const toggleMenu = () =>{
@@ -326,21 +328,15 @@ mediaVideo.forEach(block => {
     iframe.style.borderRadius = '8px';
 
     const overlay = document.createElement('div');
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100vw';
-    overlay.style.height = '100vh';
-    overlay.style.background = 'rgba(0,0,0,0.8)';
-    overlay.style.display = 'flex';
-    overlay.style.alignItems = 'center';
-    overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = '9999';
-    overlay.style.opacity = '0';
-    overlay.style.transition = 'opacity 0.3s';
+		overlay.className = 'overlay';
+    
     
     overlay.appendChild(iframe);
     document.body.appendChild(overlay);
+		const closeBtn = document.createElement('div');
+      closeBtn.style.position = 'absolute';
+      closeBtn.className = "closeIframe";
+			overlay.appendChild(closeBtn);
 
     requestAnimationFrame(() => overlay.style.opacity = '1');
 
@@ -350,10 +346,12 @@ mediaVideo.forEach(block => {
         setTimeout(() => document.body.removeChild(overlay), 300);
       }
     });
+    closeBtn.addEventListener('click', () => {
+			overlay.style.opacity = '0';
+			setTimeout(() => document.body.removeChild(overlay), 300);
+		});
   });
 });
-
-
 }
 const reviewsMore = () => {
   document.querySelectorAll('.reviews__item').forEach(item => {
@@ -380,7 +378,66 @@ const reviewsMore = () => {
   });
 };
 
+const linksMore = () => {
+  document.querySelectorAll('.link__wrapper').forEach(item => {
+    const ul = item.querySelector('ul');
+    const links = ul ? ul.querySelectorAll('li') : [];
 
+    if (links.length <= 15) return;
+    links.forEach((li, index) => {
+      if (index > 14) {
+        li.classList.add('hidden');
+      } else {
+        li.classList.add('visible');
+      }
+    });
+    const btn = document.createElement('button');
+    btn.textContent = 'Переглянути всі';
+    btn.className = 'link__more_btn';
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.textContent === 'Приховати';
+
+      if (isExpanded) {
+        links.forEach((li, index) => {
+          if (index > 14) {
+            li.classList.remove('visible');
+            li.classList.add('hidden');
+          }
+        });
+        btn.textContent = 'Переглянути всі';
+				btn.classList.remove('expanded');
+      } else {
+        // Показуємо всі
+        links.forEach(li => {
+          li.classList.remove('hidden');
+          li.classList.add('visible');
+        });
+        btn.textContent = 'Приховати';
+				btn.classList.add('expanded');
+      }
+    });
+
+    ul.insertAdjacentElement('afterend', btn);
+  });
+};
+const showMoreContent = () => {
+  document.querySelectorAll('.st__expand').forEach(button => {
+    button.addEventListener('click', () => {
+      const contentBlock = button.closest('.content');
+      if (!contentBlock) return;
+      const body = contentBlock.querySelector('.content__body');
+      if (!body) return;
+      const isExpanded = body.classList.toggle('content__body-expanded');
+      const expandText = button.getAttribute('data-expand') || 'Розгорнути';
+      const collapseText = button.getAttribute('data-collapse') || 'Згорнути';
+      button.textContent = isExpanded ? collapseText : expandText;
+      if (isExpanded) {
+        contentBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
 
 
 
