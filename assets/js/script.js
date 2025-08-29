@@ -422,7 +422,7 @@ const linksMore = () => {
   });
 };
 const showMoreContent = () => {
-  document.querySelectorAll('.st__expand').forEach(button => {
+  document.querySelectorAll('.content__expand').forEach(button => {
     button.addEventListener('click', () => {
       const contentBlock = button.closest('.content');
       if (!contentBlock) return;
