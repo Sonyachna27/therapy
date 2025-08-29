@@ -24,23 +24,30 @@ h1{
 	font-size: 24px;
 	line-height: 135%;
 	letter-spacing: -0.03em;
-	padding-bottom: 7px;
 	@media screen and (min-width:1024px) {
 	font-weight: 400;
 	font-size: 40px;
 	line-height: 1.1em;
-	padding-bottom: 29px;
 	}
 }
 	p{
 		letter-spacing: 0.01em;
-		font-size: 21px;
-    padding-bottom: 30px;
+		font-size: 14px; 
+		line-height: 1.5em; 
 		@media screen and (min-width:1200px) {
-			padding: 14px 0;
+			font-size: 21px; 
+		}  
+	}
+	h2{
+		font-size: 18px;
+    letter-spacing: -0.03em;
+		padding-top: 19px;
+    font-weight: 600;
+		@media screen and (min-width:1200px) {
+			font-size: 35px;
+       line-height: 1.45em;
 		}
 	}
-	h2,
 	.titleH2{
 		@include titleH2;
 		margin-bottom: 20px;
@@ -48,7 +55,12 @@ h1{
 			margin-bottom: 30px;
 		}
 	}
-	h3,
+	h3{
+		font-size: 18px;
+			line-height: 1.5em;
+			font-weight: 600;
+			letter-spacing: -0.03em;
+	}
 	.titleH3{
 		@include titleH3;
 		margin-bottom: 20px;
@@ -64,23 +76,50 @@ h1{
 			margin-bottom: 30px;
 		}
 	}
-	ul,
-	ul.wp-block-list{
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-	li{
-		position: relative;	
-	}
-	}
 	
+	ul.wp-block-list{
+
+			margin-top: -5px;			
+			padding-bottom: 3px;
+			@media screen and (min-width:1200px) {
+				margin-bottom: 15px;
+			}
+			li{
+				padding-bottom: 8px;
+    		padding-left: 23px;
+				position: relative;
+				@media screen and (min-width:1200px) {
+					padding-left: 27px;
+        	padding-bottom: 13px;
+				}
+				&:before{
+					content: "";
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-radius: 1px;
+					position: absolute;
+					left: 0px;
+					top: 9px;
+					z-index: 33;
+					background-color: rgba(255, 255, 255, 0.8);
+					@media screen and (min-width:1200px) {
+						width: 8px;
+						height: 8px;
+						top: 13px;
+					}
+				}
+			}
+		}
 	a{
 		font-weight: 700;
 		color: $--white;
 		transition: .3s linear;
 	}
 
-	ol,
+	ol{
+		
+	}
 	ol.wp-block-list{
 		display: flex;
 		flex-direction: column;

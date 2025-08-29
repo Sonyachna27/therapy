@@ -15,6 +15,7 @@
 		@media screen and (min-width:768px) {
 		gap: 4px;
 		color: $--white;
+		}
 		li{
 			width: fit-content;
 			padding: 0;
@@ -61,7 +62,7 @@
 		}
 	}
 	}
-}
+
 &__more_btn {
     line-height: 1.2;
     display: -webkit-inline-flex;

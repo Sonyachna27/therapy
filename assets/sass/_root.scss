@@ -35,6 +35,7 @@ $--hover-blue:#28538F;
 $--reviews-bg:rgba(108, 117, 131, 0.6980392157);
 $--links-bg:rgba(249, 251, 255, 0.2);
 $--links-hover:rgba(249, 251, 255, 0.4);
+$--link-color:#00ACB7;
 html.open-popup,
 html.open,
 html.search-active,
@@ -71,6 +72,12 @@ body{
 }
 .titleH1{
 	@include titleH1;
+}
+.titleH2{
+	@include titleH2;
+}
+.titleH3{
+	@include titleH3;
 }
 .pt-m{
 	padding-top: 40px;

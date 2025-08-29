@@ -30,9 +30,6 @@
     padding: 17px 20px 0px 20px;
     border-radius: 20px 20px 0 0;
     position: relative;
-    left: 0px;
-    margin: 0 0 0 -10px;
-    width: calc(100% + 20px);
 		@media screen and (min-width:768px) {
 			margin-left: 0;
 		}
@@ -51,5 +48,131 @@
 			
 			}
 		}
+		p + ul, 
+		p + ol, 
+		p + ul, 
+		p + ol {
+			margin-top: -5px;
+		}
+		h1{
+			padding-bottom: 7px;
+			@media screen and (min-width:1024px) {
+			padding-bottom: 29px;
+			}
+		}
+		h2{
+			@media screen and (min-width:1024px) {
+				padding-bottom: 25px;
+        padding-top: 31px;
+			}
+		}
+		h3{
+			padding-top: 0;
+			padding-bottom: 0;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			
+		}
+		p{
+			padding: 10px 0;
+			@media screen and (min-width:1200px) {
+				padding: 14px 0;
+				padding-bottom: 30px;
+			}
+			}
+		
+		ul{
+			margin-top: -5px;			
+			padding-bottom: 3px;
+			@media screen and (min-width:1200px) {
+				margin-bottom: 15px;
+			}
+			li{
+				padding-bottom: 8px;
+    		padding-left: 23px;
+				position: relative;
+				@media screen and (min-width:1200px) {
+					padding-left: 27px;
+        	padding-bottom: 13px;
+				}
+				&:before{
+					content: "";
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-radius: 1px;
+					position: absolute;
+					left: 0px;
+					top: 9px;
+					z-index: 33;
+					background-color: rgba(255, 255, 255, 0.8);
+					@media screen and (min-width:1200px) {
+						width: 8px;
+						height: 8px;
+						top: 13px;
+					}
+				}
+			}
+		}
+		img{
+			border-radius: 20px;
+			position: relative;
+			margin-top: 5px;
+		}
+		ol{
+				margin-bottom: 37px;
+				li{
+					
+					position: relative;
+					padding: 11px 0 11px 33px;
+					font-size: 14px;
+					// min-height: 85px;
+					line-height: 1.3em;
+					counter-increment: ol;
+					list-style-image: none;
+					list-style-type: none;
+					border-top: 0.8px solid $--bg-after;
+					@media screen and (min-width:768px) {
+						padding: 21px 0 21px 92px;
+						font-size: 18px;
+					}
+
+					&::before{
+						content: "0" counter(ol);
+						width: 23px;
+						height: 23px;
+						display: inline-block;
+						border-radius: 77px;
+						position: absolute;
+						left: 0px;
+						top: 11px;
+						font-size: 10px;
+						z-index: 33;
+						border: 1.5px solid rgba(255, 255, 255, 0.2);
+						line-height: 21px;
+						text-align: center;
+						@media screen and (min-width:768px) {							
+							width: 50px;
+							height: 50px;
+							top: 21px;
+							font-size: 17px;
+							line-height: 48px;
+						
+					}
+				}
+				a{
+					// vertical-align: sub;
+				}
+			}
+	}
+	a{
+		color:$--link-color;
+		text-decoration: underline;
+		transition: .3s linear;
+
+		&:hover{
+			text-decoration: none;
+		}
+	}
 }
 }
