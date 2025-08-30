@@ -161,6 +161,7 @@
 			white-space: nowrap;
 			text-align: left;
 			padding: 11px 19px;
+			padding-right: 55px;
 			color: $--white;
        border: 1px solid $--white;
 			font-size: 12px;
@@ -175,12 +176,37 @@
 			background: $--white;
 			-webkit-backdrop-filter: blur(50px);
 			backdrop-filter: blur(50px);
+						&:before,
+			&:after{
+			content: '';
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			right: 10px;			
+		}
+			&:before{
+			background-color:$--dark-blue;
+			transform: translateY(-50%);
+		}
+			&:after{
+				transform: translateY(-50%) rotate(45deg);
+				background: transparent url(../images/arrow-white.svg) center center / 10px no-repeat;
+				transition:background-color .2s;
+			}
 			@media screen and (min-width:1200px) {
 			font-size: 15px;
 			gap: 15px;
 		}
 		&:hover{
 			background-color: transparent;
+			&:before{
+				background-color: $--white;
+			}
+			&:after{
+				filter: invert(1);
+			}
 		}
 			@media screen and (max-width:1023.9px) {
 					border-radius: 10px;
@@ -207,16 +233,11 @@
 						margin-left: 0;
 						will-change: width, border-radius, margin-left, max-width;
 					}
+					&:before,&:after{
+						content: none;
+					}
 				}
-			.arrow-circle{
-				transform: rotate(45deg);
-				max-width: 32px;
-				max-height: 32px;
-				border-radius: 50%;
-				@media screen and (max-width:1023.9px) {
-				display: none;
-			}
-			}			
+				
 			.mobile__text,
 			.svg-phone{
 				@media screen and (min-width:1024px) {

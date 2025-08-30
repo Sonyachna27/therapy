@@ -65,20 +65,17 @@
 		}
 		.btn.btn-grey{
 			border-color: transparent;
-			padding: 8px 10px 8px 20px;
+			padding: 11px 57px 11px 20px;
 			font-size: 13px;
 			@media screen and (min-width:1024px) {
 				font-size: 14px;
-			}
-			svg{
-				transform: rotate(-45deg);
 			}
 		}
 	}
 	&__slider{
 		padding: 27px 0;
 		
-		width: calc(100% + 1px);
+		width: calc(100% + 10px);
 		margin-bottom: 20px;
 		position: relative;
 		@media screen and (min-width:768px) {

@@ -2,6 +2,10 @@
 	&__container{
 		display: flex;
 		flex-direction: column;
+			@media screen and (max-width:767.9px) {
+				margin-left: -10px;
+				margin-right: -10px;
+			}
 	}
 	&__link{
 		-webkit-order: 1;
@@ -118,7 +122,11 @@
 			padding-bottom: 0;
 			margin-top: 20px;
 			margin-bottom: 20px;
-			
+			@media screen and (min-width:1200px) {
+				margin-top: 40px;
+        margin-bottom: 30px;
+
+			}
 		}
 		p{
 			padding: 10px 0;
@@ -221,11 +229,9 @@
 							top: 21px;
 							font-size: 17px;
 							line-height: 48px;
+							transform: translateY(-11px);
 						
 					}
-				}
-				a{
-					// vertical-align: sub;
 				}
 			}
 	}
@@ -233,7 +239,7 @@
 		color:$--link-color;
 		text-decoration: underline;
 		transition: .3s linear;
-
+		font-weight: 400;
 		&:hover{
 			text-decoration: none;
 		}

@@ -1,80 +1,67 @@
 .footer{
-	background-color: $--green;
-	color: rgba(255,255, 255, 0.8);
-	&__promo{
-		padding: 40px 20px;
-		background-color: #F9F6ED;
-		color: $--green;
-		&__container{
-			display: flex;
-			flex-direction: column;
-			gap: 60px;
-			@media screen and (min-width:1024px) {
-				flex-direction: row;
+	margin-top: 47px;
+  overflow: hidden;
+	color: $--white;
+	.contact{
+		background: $--reviews-bg;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    left: 0px;
+    padding: 31px 10px 3px 10px;
+	@media screen and (min-width:1024px) {
+		padding: 89px 60px 39px 60px;
+	}
+	@media screen and (min-width:768px) {
+		border-radius: 30px;
+		margin-bottom: 5px;
+	}
+	@media screen and (min-width:768px) and (max-width:1023.9px) {
+			padding-left: 20px;
+			padding-right: 20px;
+	}
+		@media screen and (max-width:767.9px) {
+				margin-left: -10px;
+				margin-right: -10px;
 			}
-
+	&__container{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&__title{
+		width: 100%;
+		padding-bottom: 20px;
+		@media screen and (min-width:1200px) {
+			max-width: 755px;
 		}
-		&__content{
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			
-			width: 100%;
-			@media screen and (min-width:1024px) {
-				max-width: 458px;
-			}
-			div{
-				font-size: 24px;
-				font-style: normal;
-				font-weight: 700;
-				line-height: normal;
-				margin-bottom: 15px;
-				@media screen and (min-width:768px) {
-					font-size: 28px;
-				}
-			}
-			p{
-				font-size: 16px;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 140%;
-				margin-bottom: 30px;
-				@media screen and (min-width:768px) {
-					font-size: 18px;
-				}
-			&	a{
-					font-weight: 700;
-					text-decoration: underline;
-					color: $--gold;
-					transition: .3s linear;
-					&:hover{
-						color: $--green;
-					}
-				}
-			}
-			a{
-				font-size: 16px;
-				font-style: normal;
-				font-weight: 700;
-				line-height: 140%; /* 22.4px */
-				text-decoration-line: underline;
-				text-decoration-style: solid;
-				color: $--green;
+		@media screen and (min-width:768px) {
+			width: 50%;
+		}
+		.widget__title{
+			padding: 0 0 15px 0;
+		}
+		p{
+			font-size: 15px;
+			@media screen and (min-width:1200px) {
+				font-size: 20px;
 			}
 		}
-		&__images{
-			display: flex;
-			gap: 8px;
-			width: 100%;
-			@media screen and (min-width:1024px) {
-				max-width: 742px;
-			}
-			& img{
-				width: 50%;
-				object-fit: cover;
-				height: auto;
-			}
+	}
+	&__form{
+		width: 100%;
+		@media screen and (min-width:1690px) {
+			max-width: 777px;
 		}
+		@media screen and (min-width:1400px) and (max-width:1689.9px) {
+			max-width: 627px;
+		}
+		@media screen and (min-width:768px) {
+			width: 45%
+		}
+		&__messenger{
+		margin-bottom: 20px;
+		}
+	}
 	}
 	&__top{
 		display: flex;
@@ -285,9 +272,9 @@
 				height: 100%;
 				transition: .3s linear;
 				&:hover{
-					background-color: $--gold;
+					// background-color: $--gold;
 					svg path{
-						fill: $--green;
+						// fill: $--green;
 					}
 				}
 				svg{
@@ -348,23 +335,7 @@
 				}
 			}
 		}
-		.lumios{
-			max-width: 219px;
-			display: flex;
-			gap: 10px;
-			width: 100%;
-			align-items: center;
-			color: $--white;
-			text-align: center;
-			font-size: 12px;
-			font-style: normal;
-			font-weight: 500;
-			line-height: normal;
-			img{
-				max-width: 90px;
-				width: 100%;
-			}
-		}
+		
 	}
 	&__buttons{
 		display: flex;

@@ -89,9 +89,22 @@
 			}
 			&.expanded{
 				&:after{
-					transform: translateY(-50%) rotate(180deg);
+					transform: translateY(-50%) rotate(270deg);
 					background-color: $--hover-blue;
 				}
+			}
+			&:before{
+				content: '';
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 50%;
+				right: 5px;
+				transform: translateY(-50%);
+				background: $--gradient;
+				border-radius: 50%;
+				transition: .3s linear;
+
 			}
 			&:after{
 				content: '';
@@ -100,8 +113,8 @@
 				position: absolute;
 				top: 50%;
 				right: 5px;
-				transform: translateY(-50%) rotate(-45deg);
-				background: $--accent-color url(../images/links-arrow.svg) center center / 7px no-repeat;
+				transform: translateY(-50%) rotate(45deg);
+				background: url(../images/arrow-white.svg) center center / 7px no-repeat;
 				border-radius: 50%;
 				transition: .3s linear;
 

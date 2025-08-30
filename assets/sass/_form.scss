@@ -4,21 +4,36 @@ form , .woocommerce form .form-row{
 	gap: 15px;
 	input,
 	textarea ,
-	.input-text{
-		padding: 20px;
-		border-radius: 12px;
-		border: 1px solid rgba(0, 57, 68, 0.20);
-		background: #FAFAFA;
-		resize: none;
-		color: $--green;
-		outline: none;
-		width: 100%;
+	.input__text{
+    line-height: 56px;
+    background: transparent;
+    border: 0px none transparent;
+    position: relative;
+    outline: none;
+    transition: 0.2s;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.2);
+    width: 100%;
+		color: $--white;
 		&::placeholder{
-			color: rgba(0, 57, 68, 0.40);
+			color: $--white;
 			font-size: 14px;
 			font-style: normal;
-			font-weight: 500;
+			font-weight: 400;
 			line-height: normal;
+			@media screen and (min-width:1024px) {
+			font-size: 18px;
+		}
+		}
+		&:active,
+		&:focus-visible{
+			border-color: $--white;
+		}
+		&[type="tel"]{
+			border-color: $--white;
+		}
+		@media screen and (min-width:1024px) {
+			font-size: 18px;
 		}
 	}
 	textarea{
@@ -26,158 +41,190 @@ form , .woocommerce form .form-row{
 	}
 	label{
 		display: flex;
-		align-items: center;
 		justify-content: flex-start;
 		gap: 10px;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: normal;
+		color: $--white;
+    font-size: 13px;
+    line-height: 1.2em;
 	&	input[type="checkbox"]{
-			border-radius: 4px;
-			border: 2px solid rgba(0, 57, 68, 0.20);
-			background: $--white;
+			margin: 0;
 			outline: none;
-			width: 18px;
-			height: 18px;
+			width: 15px;
+			height: 15px;
+			position: relative;
+		&:before{
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: $--white;
+			border-radius: 2px;
 		}
-
+		&:checked:before{
+			background: $--white url('../images/check.svg') center center / 7px no-repeat;
+		}
+		}
+	
+		a{
+			font-weight: 400;
+			color: $--link-color;
+			text-decoration: underline;
+		}
 		&:has(input[type="checkbox"]){
 			margin-bottom: 10px;
 		}
 	}
-	fieldset{
-			border: none;
-			display: flex;
-			flex-direction: row-reverse;
-			align-items: center;
-			gap: 5px;
-			justify-content: center;
-			padding: 5px 0;
-			width: fit-content;
-			margin: 0 auto;
-		width: 100%;
-	& > label {
-		transition: .3s linear;
-			background: url(../images/star-silver.svg) center / contain no-repeat;
+.submit__wrap{
+	width: 100%;
+	position: relative;
+	&:before{
+		content: "";
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		background: linear-gradient(133.4deg, #87CDB2 19%, #00ACB7 48.94%);
+		z-index: 1;
 	}
-	& > label:before {
-			width: 21px;
-			height: 21px;
-			display: block;
-			content: "";
-			transition: .3s linear;
+	&:after{
+		content: "";
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%) rotate(-45deg);
+		border-radius: 50%;
+		background: url("../images/links-arrow.svg") no-repeat center / 12px;
+		z-index: 2;
 	}
+	&:not(.disabled) {
+	&:hover::after {
+			background-color: $--black;
+			filter: invert(1);
+		}
+}
+}
 
-	& > input {
-			display: none;
-	}
-	&:not(:checked) > label:hover, 
-	&:not(:checked) > label:hover ~ label,
-	 & > input:checked + label:hover,
-		& > input:checked ~ label, 
-		& > input:checked ~ label:hover, 
-		& > input:checked ~ label:hover ~ label,
-		 & > label:hover ~ input:checked ~ label {
-			width: 21px;
-			height: 21px;
-			background: url(../images/star-gold.svg) center / contain no-repeat;
-	}
-	}
 	input[type="submit"] , button[type="submit"] , .button.woocommerce-form-login__submit{
-		border-radius: 10px;
-		background: $--green;
-		padding: 20px;
+
 		width: 100%;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: normal;
-		color: $--white;
+		color: $--dark-blue;
 		outline: none;
-		border: none;
-		transition: .3s linear;
+		background-color: $--white;
+		border: 1px solid $--white;
+		line-height: 54px;
+    text-align: left;
+		padding: 0 55px 0 25px;    
+    display: inline-block;
+    border-radius: 77px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s linear;
+    white-space: nowrap;
 		cursor: pointer;
 		&:hover{
-			color: $--green;
-			background-color: $--gold;
+			color: $--white;
+			background-color: transparent;
 		}
 		&:active{
-			color: $--green;
-			background-color: #A18862;
+			color: $--dark-blue;
 		}
-	}
-
-}
-.reviewForm__wrap{
-	padding: 20px;
-	border-radius: 30px;
-	border: 2px solid $--silver;
-	background: $--white;
-	@media screen and (min-width:768px) {
-		padding: 60px;
-	}
-	div{
-		@include titleH3;
-		margin-bottom: 20px;
-	}
-	input[type="submit"]{
-		border-radius: 500px;
-	}
-	input:not([type="checkbox"]):nth-of-type(1),
-	input:not([type="checkbox"]):nth-of-type(2){
-		@media screen and (min-width:768px) {
-			width: calc(50% - 10px);
-		}
-		
-	}
-}
-.guaranteesForm{
-	&__wrap{
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-		padding: 20px;
-		border-radius: 30px;
-		border: 2px solid $--silver;
-		background: #F5F3F1;
-		@media screen and (min-width:768px) {
-			padding: 60px;
-			flex-direction: row;
-			gap: 20px;
-		}
-	}
-	&__info{
-		@media screen and (min-width:768px) {
-			width: 37%;
-		}
-		div{
-			@include titleH3;
-			margin-bottom: 10px;
-			@media screen and (min-width:768px) {
-				margin-bottom: 20px;
+		&:disabled{
+			cursor: not-allowed;
+    	opacity: 0.6;
+			&:hover{
+				background-color: $--white;
+				color: $--dark-blue;
 			}
 		}
-	}
-	form{
-		@media screen and (min-width:768px) {
-			width: 63%;
-		}
-		input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):nth-of-type(1),
-	input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):nth-of-type(2){
-		@media screen and (min-width:768px) {
-			width: calc(50% - 10px);
-		}
-		
-	}
-		input[type="submit"]{
-			border-radius: 500px;
-		}
+
 	}
 }
+// .reviewForm__wrap{
+// 	padding: 20px;
+// 	border-radius: 30px;
+// 	@media screen and (min-width:768px) {
+// 		padding: 60px;
+// 	}
+// 	div{
+// 		@include titleH3;
+// 		margin-bottom: 20px;
+// 	}
+// 	input[type="submit"]{
+// 		border-radius: 500px;
+// 	}
+// 	input:not([type="checkbox"]):nth-of-type(1),
+// 	input:not([type="checkbox"]):nth-of-type(2){
+// 		@media screen and (min-width:768px) {
+// 			width: calc(50% - 10px);
+// 		}
+		
+// 	}
+// }
+// .guaranteesForm{
+// 	&__wrap{
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 20px;
+// 		padding: 20px;
+// 		border-radius: 30px;
+// 		// border: 2px solid $--silver;
+// 		background: #F5F3F1;
+// 		@media screen and (min-width:768px) {
+// 			padding: 60px;
+// 			flex-direction: row;
+// 			gap: 20px;
+// 		}
+// 	}
+// 	&__info{
+// 		@media screen and (min-width:768px) {
+// 			width: 37%;
+// 		}
+// 		div{
+// 			@include titleH3;
+// 			margin-bottom: 10px;
+// 			@media screen and (min-width:768px) {
+// 				margin-bottom: 20px;
+// 			}
+// 		}
+// 	}
+// 	form{
+// 		@media screen and (min-width:768px) {
+// 			width: 63%;
+// 		}
+// 		input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):nth-of-type(1),
+// 	input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):nth-of-type(2){
+// 		@media screen and (min-width:768px) {
+// 			width: calc(50% - 10px);
+// 		}
+		
+// 	}
+// 		input[type="submit"]{
+// 			border-radius: 500px;
+// 		}
+// 	}
+// }
 .password-input {
 	width: 100%;
 }
 .comment-respond form {
 	flex-direction: column;
+}
+
+.contact__form{
+	padding: 24px;
+    background: radial-gradient(57.26% 54.82% at 11.67% 0%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(32.75% 34.31% at 95.24% 3.85%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(67.43% 70.62% at 3.6% 94.51%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(75.39% 76.11% at 95% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+	@media screen and (min-width:768px) {
+		border-radius: 32px;
+  padding: 40px;
+	}
 }

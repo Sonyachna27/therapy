@@ -8,12 +8,14 @@
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.5s linear;
-	background: rgba(236, 239, 245, 0.80);
+	background-color: rgba(0, 0, 0, 0.75) ;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 	 @media screen and (max-width:767px) {
 		padding-top: 20px;
 	 }
 }
-.open-popup .popup {
+.open-popup.popup {
 	opacity: 1;
 	visibility: visible;
 }
@@ -23,157 +25,256 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 1;
+	z-index: 0;
 	width: 100%;
 	height: 100%;
 }
 .popup-wrapper{
-	height: 100%;
+		height: 100%;
+		height: 100vh;
+		max-height: 100vh;
     overflow-y: auto;
     text-align: center;
-    position: relative;
+    position: fixed;
 		transition: 0.5s linear;
-		&::after {
-			content: "";
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
-	}
-}
-.popup__top{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
-	@include titleH3;
-			margin-bottom: 40px;
-			@media screen and (max-width:767px) {
-				font-size: 17px;
-			}
+		display: flex;
+		overflow-y: auto;
+		top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+		z-index: 1001;
+		@media screen and (min-width:768px) {
+			bottom: auto;
+			top: 0
+		}
+		@media screen and (min-width:1200px) {
+			width: 100%;
+        left: 50%;
+        right: auto;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+		}
+	// 	&::after {
+	// 		content: "";
+	// 		display: inline-block;
+	// 		height: 100%;
+	// 		vertical-align: middle;
+	// }
 }
 
 .popup-wrap{
-		vertical-align: middle;
-    text-align: left;
+	margin: auto;
     display: inline-block;
-		gap: 5px;
-		padding: 30px 20px;
-		background-color: $--white;
-		opacity: 1;
-		z-index: 2;
-		max-width: 700px;
-		position: relative;
-		width: 90vw;
-		border-radius: 20px;
-		@media screen and (min-width:768px) {
-			padding: 40px;
-		}
-
+    opacity: 1;
+    padding: 15px 20px;
+    text-align: left;
+    vertical-align: middle;
 		& .close{
 				outline: none;
-				min-width: 40px;
-				min-height: 40px;
-				max-width: 40px;
-				max-height: 40px;
+				min-width: 30px;
+				min-height: 30px;
+				max-width: 30px;
+				max-height: 30px;
 				padding: 0;
 				cursor: pointer;
 				border-radius: 50%;
 				background: none;
+				position: absolute;
+				top: 7px;
+				right: 12px;
+				@media screen and (min-width:1024px) {
+						min-width: 40px;
+						min-height: 40px;
+						max-width: 40px;
+						max-height: 40px;
+						top: 20px;
+				right: 20px;
+					 }
 				 & svg{
-					 width: 40px;
-					 height: 40px;
+					 width: 30px;
+					 height: 30px;
+					 @media screen and (min-width:1024px) {
+						width: 40px;
+						height: 40px;
+					 }
 					}
+
 		}
-	& .local__list{
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px;
-		margin-bottom: 40px;
-	
-		li{
-			width: calc((100% / 2) - 20px);
-			font-size: 14px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 120%; /* 16.8px */
-			letter-spacing: -0.14px;
-			text-decoration-line: underline;
-			text-decoration-style: solid;
-			padding-left: 0;
-			&::before{
-				display: none;
+
+}
+.popup__container{
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	position: relative;
+	height: auto;
+	color: $--white;
+	@media screen and (min-width:1400px) {
+		max-width: 1200px;
+	}
+		@media screen and (min-width:1200px) and (max-width:1399.9px) {
+			max-width: 1150px;
+		}
+		@media screen and (min-width:1024px) {
+			padding: 53px 73px 51px 73px;
+		}
+		@media screen and (min-width:768px) and (max-width:1023.9px) {
+			padding: 20px;
+        border-radius: 30px;
+		}
+		@media screen and (min-width:768px) {
+			display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        gap: 10px;
+				border-radius: 30px;
+		}
+	background:linear-gradient(178.48deg, rgba(2, 64, 113, 0.5) 80.85%, rgba(9, 29, 62, 0) 150.71%), linear-gradient(146.63deg, rgba(2, 64, 113, 0.6) 13.42%, rgba(9, 29, 62, 0) 74.77%),
+}
+.popup__title{
+	padding: 21px 50px 10px 20px;
+    font-size: 26px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    line-height: 1.1em;
+	@media screen and (min-width:768px) {
+		grid-column: 1;
+		grid-row: 1;
+		align-self: start;
+		justify-self: start;
+	}
+	@media screen and (min-width:1400px) {
+		font-size: 53px;
+        letter-spacing: -0.02em;
+	}
+	@media screen and (min-width:1200px) and (max-width:1399.9px) {
+		font-size: 46px;
+	}
+	@media screen and (min-width:1024x) and (max-width:1199.9px) {
+		font-size: 36px;
+	}
+}
+.popup__form{
+		padding: 9px 20px 20px 20px;
+    margin: 0 auto;
+    text-align: left;
+	@media screen and (min-width:768px) {
+		grid-column: 2;
+		grid-row: 1 / 3;
+		align-self: stretch;
+		justify-self: stretch;
+		margin-top: 14px;
+	}
+}
+.popup__contacts{
+	  padding: 0 20px 20px 20px;
+    text-align: left;
+		margin-top: -13px;
+		font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4em;
+    color: rgba(255, 255, 255, 0.5490196078);
+    padding-bottom: 7px;
+		&__item{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			& + &{
+				border-top: 1px solid rgba(255, 255, 255, 0.4);
+				margin-top: 15px;
+				padding-top: 17px;
 			}
-			a:not([class]){
-				font: inherit;
-				color: inherit;
-				text-decoration: none;
-				transition: .3s linear;
-				&:hover{
+			> span{
+				width: 100%;
+				font-size: 12px;
+				font-weight: 500;
+				line-height: 1.4em;
+				color: rgba(255, 255, 255, 0.5490196078);
+				padding-bottom: 7px;
+				@media screen and (min-width:1200px) {
+					width: 38%;
 				}
 			}
-			&.active{
-			} 
-			@media screen and (min-width:1024px) {
-				width: calc((100% / 4) - 20px);
+			&__wrap{
+				display: flex;
+				flex-direction: column;
+				font-size: 19px;
+				color: $--white;
+				width: 100%;
+				a{
+					margin-bottom: 5px;
+					transition: .2s;
+					&:hover{
+						color: $--link-color;
+					}
+				}
+				@media screen and (min-width:1200px) {
+					width: 58%;
+				}
 			}
-			@media screen and (min-width:768px)  and (max-width:1023.9px){
-				width: calc((100% / 3) - 20px);
+			&__address,
+			&__desc{				
+				padding: 3px 0;
+				line-height: 1.4em;
 			}
-		}
-	}
-		& p{
-			
-			font-size: 14px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 140%;
+			&__desc{
+				font-size: 12px;
+				font-weight: normal;
+			}
+			&__address{
+font-size: 19px;
+				font-weight: 600;
+			}
 		}
 }
 
-#callback-popup .btn {
-	max-width: 100%;
-	width: 100%;
-}
-#callback-popup span {
-	width: 100%;
-}
-#callback-popup p {
-	font-size: 15px;
-	margin-bottom: 10px;
-}
-.wpcf7-spinner {
-	display: none;
-}
-#callback-popup .wpcf7-not-valid-tip {
-	position: absolute;
-    bottom: 0;
-    left: 5px;
-	width: fit-content;
-}
-.wpcf7 form .wpcf7-response-output {
-	padding: 0;
-	margin: 0;
-	border: none;
-	position: absolute;
-    left: 0;
-    bottom: 0;
-    font-size: .8em;
-    padding: 5px 10px;
-    text-align: left;
-	width: 100%;
-	@media screen and (max-width: 767px) {
-		font-size: .6em;
-	}
-}
-#callback-popup .callback-popup__wrapper  {
-	background:#fff;
-	padding:30px 30px 50px 30px;
-	border-radius:10px;
-	max-width:650px;
-	width:90%;
-	text-align:center;
-	position:relative;
-	@media screen and (max-width: 767px) {
-		padding: 25px 10px 45px;
-	}
-}
+// #callback-popup .btn {
+// 	max-width: 100%;
+// 	width: 100%;
+// }
+// #callback-popup span {
+// 	width: 100%;
+// }
+// #callback-popup p {
+// 	font-size: 15px;
+// 	margin-bottom: 10px;
+// }
+// .wpcf7-spinner {
+// 	display: none;
+// }
+// #callback-popup .wpcf7-not-valid-tip {
+// 	position: absolute;
+//     bottom: 0;
+//     left: 5px;
+// 	width: fit-content;
+// }
+// .wpcf7 form .wpcf7-response-output {
+// 	padding: 0;
+// 	margin: 0;
+// 	border: none;
+// 	position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     font-size: .8em;
+//     padding: 5px 10px;
+//     text-align: left;
+// 	width: 100%;
+// 	@media screen and (max-width: 767px) {
+// 		font-size: .6em;
+// 	}
+// }
+// #callback-popup .callback-popup__wrapper  {
+// 	background:#fff;
+// 	padding:30px 30px 50px 30px;
+// 	border-radius:10px;
+// 	max-width:650px;
+// 	width:90%;
+// 	text-align:center;
+// 	position:relative;
+// 	@media screen and (max-width: 767px) {
+// 		padding: 25px 10px 45px;
+// 	}
+// }

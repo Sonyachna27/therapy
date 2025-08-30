@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	reviewsMore();
 	linksMore();
 	showMoreContent();
+	requiredForm() ;
 });
 
 const toggleMenu = () =>{
@@ -48,41 +49,47 @@ const animationHeader = () =>{
     
   });
 }
-
 const handlePopup = () => {
+  const html = document.documentElement;
+ 
   const openPopup = () => {
-    document.querySelectorAll('[data-open]').forEach(element => {
-      element.addEventListener('click', () => {
-        const popupName = element.getAttribute('data-open'); 
-        const popupTarget = document.querySelector(`[data-popup="${popupName}"]`); 
-
-        if (popupTarget) {
-          document.documentElement.classList.add('open-popup');
-          popupTarget.classList.add('open-popup'); 
-        }
+  document.querySelectorAll('[data-open]').forEach(button => {
+    button.addEventListener('click', () => {
+      const popupName = button.getAttribute('data-open');
+      const popupTarget = document.querySelector(`[data-popup="${popupName}"]`);
+      document.querySelectorAll('.popup.open-popup').forEach(popup => {
+        popup.classList.remove('open-popup');
       });
-    });
-  };
 
+      if (popupTarget) {
+        popupTarget.classList.add('open-popup');
+        html.classList.add('has-popup'); 
+      }
+    });
+  });
+};
+
+ 
   const closePopup = () => {
-    document.querySelectorAll('[data-close]').forEach(element => {
-      element.addEventListener('click', () => {
-        const popup = element.closest('.popup'); 
-
+    document.querySelectorAll('[data-close]').forEach(button => {
+      button.addEventListener('click', () => {
+        const popup = button.closest('.popup');
         if (popup) {
-          popup.classList.remove('open-popup'); 
+          popup.classList.remove('open-popup');
         }
-
-        if (!document.querySelector('.popup.open-popup')) {
-          document.documentElement.classList.remove('open-popup');
+ 
+        const anyOpen = document.querySelector('.popup.open-popup');
+        if (!anyOpen) {
+          html.classList.remove('has-popup');
         }
       });
     });
   };
-
+ 
   openPopup();
   closePopup();
-};
+ };
+
 
 const accordionFunction = () => {
   const accordionItems = document.querySelectorAll(".accord-item");
@@ -438,7 +445,23 @@ const showMoreContent = () => {
     });
   });
 }
-
+const requiredForm = () => {
+  document.querySelectorAll('form').forEach(form => {
+    const checkbox = form.querySelector('input[type="checkbox"]');
+    const submitBtn = form.querySelector('input[type="submit"]');
+		if(!checkbox && !submitBtn) return
+    const submitWrap = form.querySelector('.submit__wrap');
+    submitWrap.classList.add('disabled');
+    checkbox.addEventListener('change', () => {
+      submitBtn.disabled = !checkbox.checked;
+      if (submitBtn.disabled) {
+        submitWrap.classList.add('disabled');
+      } else {
+        submitWrap.classList.remove('disabled'); 
+      }
+    });
+  });
+};
 
 
 /**

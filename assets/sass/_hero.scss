@@ -17,8 +17,6 @@
 	}
 	&__info{
 		position: absolute;
-    // top: 80px;
-    // top: -55px;
 		top: 0;
     z-index: 3;
     width: calc(100% - 20px);
@@ -100,7 +98,6 @@
 			height: 13px;
 			width: 13px;
 			background: transparent url(../images/hero-after-img.png) left top no-repeat;
-			
 			background-size: auto 13px;
 			display: inline-block;
 			position: absolute;
@@ -173,8 +170,12 @@
 			}
 			@media screen and (min-width:768px) {
 				-webkit-align-items: flex-end;
-			-ms-flex-align: end;
-			align-items: flex-end;
+				-ms-flex-align: end;
+				align-items: flex-end;
+			}
+			@media screen and (max-width:767.9px) {
+				margin-left: -10px;
+				margin-right: -10px;
 			}
 			
 			@media screen and (min-width:768px) and (max-width:1689.9px){
@@ -182,11 +183,11 @@
 			}
 			@media screen and (max-width:767.9px) {
 				background: linear-gradient(0deg, rgba(184, 184, 184, 0.14), rgba(184, 184, 184, 0.14)), linear-gradient(72.39deg, rgba(255, 255, 255, 0) 4.84%, rgba(0, 37, 65, 0.5) 100%);
-		-webkit-backdrop-filter: blur(49px);
-		backdrop-filter: blur(49px);
-		border-radius: 40px;    
-		padding: 20px;
-		width: 100%;
+				-webkit-backdrop-filter: blur(49px);
+				backdrop-filter: blur(49px);
+				border-radius: 40px;    
+				padding: 20px;
+				// width: 100%;
 			}
 			.titleH1{
 				@media screen and (min-width:1690px) {
@@ -219,48 +220,8 @@
 				}
 				
 			}
-			
+		
 		}
-		&__btns{
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			row-gap: 20px;
-			column-gap: 10px;
-				@media screen and (min-width:1690px) {
-				width: 30%;
-			}
-				@media screen and (max-width:767.9px) {
-				    padding: 20px 20px 25px 20px;
-    				width: 100%;
-			}
-				@media screen and (min-width:1024px) and (max-width:1689.9px) {
-				width: 40%;
-			}
-				@media screen and (min-width:768px) and (max-width:1023.9px) {
-				width: 47%;
-			}
-			.btn{
-				justify-content: space-between;
-				width: calc(100% - 142px);
-				text-wrap-style: pretty;
-   			 white-space: normal;
-				@media screen and (min-width:1400px) {
-					width: calc(100% - 152px);
-				}
-				&.white-btn{
-					width: 100%;
-				}
-			}
-			img{
-				max-width: 132px;
-				max-height: 56px;
-				width: 100%;
-				height: 100%;
-				@media screen and (min-width:1400px) {
-					max-width: 140px;
-				}
-			}
-		}
+		
 	}
 } // end hero

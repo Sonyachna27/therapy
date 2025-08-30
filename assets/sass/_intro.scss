@@ -20,6 +20,10 @@
 		@media screen and (max-width:1023.9px) {
 			gap: 15px;
 		}
+			@media screen and (max-width:767.9px) {
+				margin-left: -10px;
+				margin-right: -10px;
+			}
 
 	}
 	&__btn{
@@ -46,6 +50,9 @@
 		@media screen and (min-width:1200px) {
 			max-width: 368px;
 			padding: 11px 120px 11px 23px ;
+		}
+		@media screen and (min-width:768px) {
+			font-size: 16px;
 		}
 		img{
 			position: absolute;
@@ -213,7 +220,7 @@
 			height: 15px;
 			@media screen and (min-width:1200px) {
 				top: 0;
-        left: -14px;
+        left: -13px;
         -webkit-transform: scale(-1);
         transform: scale(-1);
 			}
