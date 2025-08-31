@@ -72,16 +72,17 @@
 				width: 15px;
 				top: 27px;
 				left: 44%;
+				height: 1.5px;
 				}
 			
 				.open &{
-						width: 24px;
+						width: 26px;
 						&:nth-child(1) {
 								transform: rotate(45deg) translate(-6px, 12px);								
 						}
 		
 						&:nth-child(3) {
-								transform: rotate(-45deg) translate(-2px, -11px);								
+								transform: rotate(-45deg) translate(-3px, -11px);								
 						}
 					
 						&:nth-child(2){
@@ -364,9 +365,12 @@
 			}
 				> a {  
 					font-size: 11px;
-					color: $--dark-blue;
+					color: $--white;
 					display: inline-block;
 					transition: background-size 300ms ease, text-decoration 300ms ease;
+					.home, .front-page &{
+						color: $--dark-blue;
+					}
 					@media screen and (min-width:1024px) {
 						background-image: linear-gradient(
 						to bottom,

@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	linksMore();
 	showMoreContent();
 	requiredForm() ;
+	doctorReviewsSliderInit();
+	doctorPublicSliderInit();
+	upDoctor();
 });
 
 const toggleMenu = () =>{
@@ -135,19 +138,19 @@ const wrapTablesInDiv = () => {
 }
 
 const openTabs = () => {
-  const tabGroups = document.querySelectorAll(".target__wrap"); 
+  const tabGroups = document.querySelectorAll(".target__wrap");
 
   tabGroups.forEach((group) => {
     const tabsLinks = group.querySelectorAll(".target__list-item");
     const allContentBlocks = group.querySelectorAll(".target__content");
-    let frontBlockId = tabsLinks[0].dataset.name; 
+    let frontBlockId = tabsLinks[0].dataset.name; // перший таб активний за замовчуванням
 
     function addTabsActive() {
       tabsLinks.forEach((button, index) => {
         button.addEventListener("click", () => {
-          tabsLinks.forEach((otherButton) => {
-            otherButton.classList.remove("active");
-          });
+          tabsLinks.forEach((otherButton) =>
+            otherButton.classList.remove("active")
+          );
           button.classList.add("active");
           showContent(button.dataset.name, index);
         });
@@ -156,17 +159,13 @@ const openTabs = () => {
 
     function updateActiveTab(index) {
       tabsLinks.forEach((button, i) => {
-        if (i === index) {
-          button.classList.add("active");
-        } else {
-          button.classList.remove("active");
-        }
+        button.classList.toggle("active", i === index);
       });
     }
 
     function changeSlide(blockId) {
       allContentBlocks.forEach((block) => {
-        if (block.getAttribute("id") === blockId) {
+        if (block.dataset.name === blockId) {
           block.style.display = "flex";
           block.style.opacity = 1;
         } else {
@@ -181,10 +180,12 @@ const openTabs = () => {
       changeSlide(itemName);
       updateActiveTab(index);
     }
+
     addTabsActive();
-    showContent(frontBlockId, 0); 
+    showContent(frontBlockId, 0); // показати перший таб
   });
 };
+
 
 const servicesMore = () =>{
 	const servicesContentItem = document.querySelectorAll('.services__content__item');
@@ -199,17 +200,13 @@ const servicesMore = () =>{
 	})
 }
 const reviewsSliderInit = () => {
-	const reviewsSections = document.querySelectorAll('.reviews');
-	if (!reviewsSections.length) return;
+		const reviewsSectionsSLider = document.querySelectorAll('.reviews__slider__wrapper');
+	if (!reviewsSectionsSLider.length) return;
 
-	const reviewsSectionsSLider = document.querySelectorAll('.reviews__slider__wrapper');
 	reviewsSectionsSLider.forEach(section => {
-		// Проверяем, нужно ли инициализировать слайдер
 		if (!section.classList.contains('withoutSlider')) {
 			const sliderContainer = section.querySelector('.reviewsSlider');
 			if (!sliderContainer) return;
-
-			// Инициализация Swiper
 			new Swiper(sliderContainer, {
 				slidesPerView: 1.15,
 				spaceBetween: 10,
@@ -233,6 +230,81 @@ const reviewsSliderInit = () => {
 			const sliderWrapper = section.querySelector('.reviews__slider');
 			if (!sliderWrapper) return;
 
+			const elements = sliderWrapper.querySelectorAll('*');
+			elements.forEach(el => {
+				Array.from(el.classList).forEach(cls => {
+					if (cls.startsWith('swiper-') || cls === 'swiper') {
+						el.classList.remove(cls);
+					}
+				});
+			});
+		}
+	});
+};
+const doctorReviewsSliderInit = () => {
+		const doctorReviewsSectionsSLider = document.querySelectorAll('.reviews__slider__wrapper');
+	if (!doctorReviewsSectionsSLider.length) return;
+
+
+	doctorReviewsSectionsSLider.forEach(section => {
+		if (!section.classList.contains('withoutSlider')) {
+			const sliderContainer = section.querySelector('.doctorReviewsSlider');
+			if (!sliderContainer) return;
+			new Swiper(sliderContainer, {
+				slidesPerView: 1.15,
+				spaceBetween: 10,
+			
+				navigation: {
+					nextEl: section.querySelector('.reviews-button-next'),
+					prevEl: section.querySelector('.reviews-button-prev'),
+				},
+			});
+		} else {
+			const sliderWrapper = section.querySelector('.reviews__slider');
+			if (!sliderWrapper) return;
+
+			const elements = sliderWrapper.querySelectorAll('*');
+			elements.forEach(el => {
+				Array.from(el.classList).forEach(cls => {
+					if (cls.startsWith('swiper-') || cls === 'swiper') {
+						el.classList.remove(cls);
+					}
+				});
+			});
+		}
+	});
+};
+const doctorPublicSliderInit = () => {
+		const doctorPublicSectionsSLider = document.querySelectorAll('.public__slider__wrapper');
+	if (!doctorPublicSectionsSLider.length) return;
+	doctorPublicSectionsSLider.forEach(section => {
+		if (!section.classList.contains('withoutSlider')) {
+			const sliderContainer = section.querySelector('.doctorPublicSlider');
+			if (!sliderContainer) return;
+			new Swiper(sliderContainer, {
+  slidesPerView: 1.2,
+  centeredSlides: true,
+  spaceBetween: 10,
+  // loop: true,
+	observer: true,
+  observeParents: true,
+  autoHeight: true,
+  navigation: {
+    nextEl: section.querySelector('.public-button-next'),
+    prevEl: section.querySelector('.public-button-prev'),
+  },
+  on: {
+    init: function () {
+      this.updateAutoHeight(300); 
+    },
+    slideChange: function () {
+      this.updateAutoHeight(300); 
+    }
+  }
+});
+		} else {
+			const sliderWrapper = section.querySelector('.public__slider');
+			if (!sliderWrapper) return;
 			const elements = sliderWrapper.querySelectorAll('*');
 			elements.forEach(el => {
 				Array.from(el.classList).forEach(cls => {
@@ -462,7 +534,35 @@ const requiredForm = () => {
     });
   });
 };
+const upDoctor = () =>{
+	if (document.querySelector('.doctor__image')) {
+  rearrangeDoctorLayout();
+  window.addEventListener('resize', () => {
+    requestAnimationFrame(rearrangeDoctorLayout);
+  });
+}
 
+function rearrangeDoctorLayout() {
+  const imageBlock = document.querySelector('.doctor__image');
+  const bottomBlock = document.querySelector('.doctor__bottom');
+
+  if (!imageBlock || !bottomBlock) return;
+
+  if (window.innerWidth > 768) {
+    const imageBottom = imageBlock.offsetTop + imageBlock.offsetHeight;
+    const bottomTop = bottomBlock.offsetTop;
+
+    bottomBlock.style.marginTop = '0px';
+
+    if (imageBottom < bottomTop) {
+      bottomBlock.style.marginTop = `${imageBottom - bottomTop}px`;
+    }
+  } else {
+    bottomBlock.style.marginTop = '0px';
+  }
+}
+
+}
 
 /**
  * Woo JS

@@ -1,0 +1,93 @@
+.doctors{
+	&__container{
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	@media screen and (min-width:1200px) {
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	}
+	@media screen and (min-width:768px) and (max-width:1199.9px) {
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));	
+	}
+		
+		@media screen and (min-width:768px) {
+			display: grid;	
+			gap: 12px;
+		}
+	}
+	&__item{
+		border-radius: 18px;
+    background:$--white;
+    display: block;
+    position: relative;
+		width: 100%;
+		img{
+			border-radius: 18px 18px 0 0;
+			aspect-ratio:  510 / 423;
+			height: auto;
+			object-fit: cover;
+			width: 100%;
+			overflow-clip-margin: content-box;
+    overflow: clip;
+		}
+
+	}
+	&__info{
+		padding: 10px;
+		 border-radius: 0 0 18px 18px;
+	}
+	&__title{
+		width: 100%;
+    font-size: 16px;
+    line-height: 1.16;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #223859;
+    text-wrap: balance;
+		margin-bottom: 6px;
+	}
+	&__tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+		margin-bottom: 10px;
+		.doctors__label{
+			background-color: $--doctors-label;			
+			color: #fff;
+			text-transform: uppercase;
+			}
+	}
+	&__labels{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+    padding-right: 35px;
+    gap: 3px;
+		align-items: center;
+	}
+	&__label{
+			background-color:rgba(34, 56, 89, 0.0784313725);
+			color: $--dark-blue;
+			font-size: 8px;
+			line-height: 17px;
+			letter-spacing: 0.04em;			
+			padding: 2px 5px;
+			min-height: unset;
+			border-radius: 6px;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			font-weight: 400;
+			span{
+				background-color: $--doctors-label;			
+				color: #fff;				
+				border-radius: 5px;
+				font-size: 12px;
+				line-height: 17px;
+				padding-left: 4px;
+				padding-right: 4px;
+				letter-spacing: -0.02em;
+				vertical-align: top;
+			}
+		}
+}
