@@ -548,7 +548,7 @@ function rearrangeDoctorLayout() {
 
   if (!imageBlock || !bottomBlock) return;
 
-  if (window.innerWidth > 768) {
+  if (window.innerWidth >= 768) {
     const imageBottom = imageBlock.offsetTop + imageBlock.offsetHeight;
     const bottomTop = bottomBlock.offsetTop;
 
