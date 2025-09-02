@@ -15,31 +15,48 @@
 }
 
 
-$--white: #ffffff;
 
-$--black:rgb(0, 0, 0);;
+
+
 //new project
-$--blue: rgba(34, 56, 89, 0.8);
-$--bg-smooth-color: rgba(255, 255, 255, 0.1);
-$--bg-after: rgba(255, 255, 255, 0.2);
-$--bg-smooth: rgba(34, 56, 89, 0.8);
-$--dark-blue:#223859;
-$--body-bg:#00112D; 
-$--accent-color: rgb(65, 244, 255);
-$--block-grey:#687181;
-$--grey-block-list:rgba(255, 255, 255, 0.1019607843);
-$--header-color:rgba(255, 255, 255, 0.5);
-$--tabs-bg-active:#6C7583;
-$--tabs-bg:rgba(72, 79, 91, 0.7);
-$--hover-blue:#28538F;
-$--reviews-bg:rgba(108, 117, 131, 0.6980392157);
-$--links-bg:rgba(249, 251, 255, 0.2);
-$--links-hover:rgba(249, 251, 255, 0.4);
-$--link-color:#00ACB7;
+// 🔵 Blue / Cyan
+$--dark-blue: #223859;                 
+$--blue: rgba(34, 56, 89, 0.8);        
+$--hover-blue: #28538F;                
+$--doctors-label: #354D7A;             
+$--bg-smooth: rgba(34, 56, 89, 0.8);   
+$--link-light-color: #75A6EE;          
+$--link-color: #00ACB7;                
+$--accent-color: rgb(65, 244, 255);    
+
+// ⚫ Dark / Background
+$--body-bg: #00112D;                   
+$--cost-bg: #303C52;                   
+
+// ⚪ Light / Transparent
+$--white: #ffffff;
+$--bg-smooth-color: rgba(255, 255, 255, 0.1);  
+$--bg-after: rgba(255, 255, 255, 0.2);         
+$--grey-block-list: rgba(255, 255, 255, 0.1019607843); 
+$--links-bg: rgba(249, 251, 255, 0.2);         
+$--links-hover: rgba(249, 251, 255, 0.4);      
+$--header-color: rgba(255, 255, 255, 0.5);     
+$--date-color: rgba(255, 255, 255, 0.7);  
+$--disease: rgba(255, 255, 255, 0.8);  
+$--border-toc-color:rgba(214, 219, 227, 0.2);   
+    
+
+// 🟤 Grey / Neutral
+$--block-grey: #687181;                
+$--tabs-bg: rgba(72, 79, 91, 0.7);     
+$--tabs-bg-active: #6C7583;            
+$--reviews-bg: rgba(108, 117, 131, 0.6980392157); 
+$--date-bg: rgba(217, 217, 217, 0.2); 
+$--black:rgb(0, 0, 0);
+
+// 🌈 Gradient
 $--gradient: linear-gradient(133.4deg, #87CDB2 19%, #00ACB7 48.94%);
-$--doctors-label:#354D7A;
-$--cost-bg:#303C52;
-$--link-light-color:#75A6EE;
+
 html.has-popup,
 html.open,
 html.search-active,
@@ -202,6 +219,9 @@ body{
 		}
 	}
 }
+.selected{
+
+}
 .breadcrumbs{	
 	margin: 20px 0 30px 0;
 	color: $--white;
@@ -219,7 +239,7 @@ body{
     margin-bottom: 13px;
 		align-items: center;
 			a{
-				&:nth-last-of-type(1){
+				&:nth-of-type(1){
 					width: 10px;
 					height: 10px;
 					background: url(../images/home.svg) center center / cover no-repeat;
