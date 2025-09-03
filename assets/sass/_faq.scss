@@ -1,125 +1,131 @@
 .faq{
+	&__container{
+	color: $--white;
+	padding: 20px 10px;
+	gap: 16px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid $--bg-smooth-color;
+	border-radius: 30px;
+	@media screen and (min-width:1024px) {
+		gap: 40px;
+		margin: 19.5px auto 22.5px auto;
+		border: none;
+	}
+	@media screen and (min-width:768px) and (max-width:1023.9px) {
+		width: 100%;
+		margin-left: 0;
+		padding: 60px;
+	}
+	@media screen and (min-width:768px) {
+		padding: 60px;
+	}
+	}
 	&__title{
-		flex-direction: column;
-		gap: 5px;
-		@media screen and (min-width:768px) {
-			flex-direction: row;
-		}
+		margin: 0 0 16px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 110%;
+		@media screen and (min-width:1024px) {
+			font-size: 44px;
+			line-height: 100%;
+			margin: 0 0 24px;
+			}
 	}
 	&__items{
 		width: 100%;
 		display: flex;
-		flex-direction: column;
-		gap: 10px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20px;
 	}
 	&__item{
-		padding: 20px;
-		
-		border-radius: 15px;
-		border: 2px solid #EAEBED;
-		background-color: $--white;
-		@media screen and (min-width:768px) {
-			border-radius: 20px;
-			padding: 20px 30px;
+		background: $--cost-bg;
+    border-radius: 30px;
+    padding: 18px 20px 7px 20px;
+		@media screen and (min-width:1024px) {
+			padding: 28px 30px 14px 30px;
+			gap: 16px;
+			width: calc(50% - 10px);
+			min-height: 119px;
 		}
-		&.active{
-			background-color: #F5F3F1;
-			.faq__item__top p{
-				font-weight: 700;
-			}
-		}
+	
 		&__top{
 			gap: 15px;
+			span{
+				font-family: "Zapf Dingbats";
+				font-size: 16px;
+				line-height: 21px;
+				letter-spacing: -0.4px;
+				color: rgba(255, 255, 255, 0.3);
+			}
 			p{
 				margin-bottom: 0;
 			}
-			&:hover{
-				.faq-icon-wrapper{
-					background-color: $--green;
-					border-color: $--green;
-					& svg{
-						
-						path{
-							stroke:$--white;
-						}
-					}
-				}
-			}
 			
 			p{
-				font-size: 16px;
-				font-style: normal;
-				font-weight: 500;
-				line-height: 130%;
-				will-change:font-weight;
+				font-size: 18px;
+				font-size: 21px;        
 				transition: .3s linear;
-				@media screen and (min-width:768px) {
-					font-size: 20px;
+				color: #EFEFEB;
+    		line-height: 1.3em;
+				@media screen and (min-width:1024px) {
+					font-size: 21px;
+					line-height: 145%;
 				}
 			}
 			
 		}
 		&.active{
-			.faq-icon-wrapper{
-				background-color: $--green;
-				border-color: $--green;
+			.faq__item-icon{
 				& svg{
-					transform: rotate(180deg);
-					path{
-						stroke:$--white;
-					}
+					transform: rotate(0deg);					
 				}
 			}
 		}
 		&-bottom{
-			p{
-				font-size: 14px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 150%; /* 27px */
-			letter-spacing: -0.14px;
-			
+			p, li, a{
+			  font-size: 14px;
+				color: #EFEFEB;
+				line-height: 145%;
+				letter-spacing: 0.01em;			
 			&:not(:nth-last-of-type(1)){
 				margin-bottom: 20px;
 				@media screen and (min-width:768px) {
 					margin-bottom: 30px;
 				}
 			}
-			ul,ol{
-				display: flex;
-				flex-direction: column;
-				gap: 15px;
-				margin-bottom: 30px;
+			
 			}
-			@media screen and (min-width:768px) {
-				font-size: 16px;
-				letter-spacing: -0.16px;
+			a{
+				color: $--link-color;
+				transition: .2s;
+				&:hover{
+					color: inherit;
+					text-decoration: underline;
+				}
 			}
 			}
-			}
-	}
-	&-icon-wrapper{
+			&-icon{
 			min-width: 32px;
 			min-height: 32px;	
 			border-radius: 50%;
-			background: #EAEBED;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			margin-left: auto;
 			transition: .3s linear;
+			margin-left: auto;
 				svg{
-					width: 14px;
-					height: 12px;
+					width: 100%;
+					height: 100%;
 					transition: .3s linear;
+					transform: rotate(-45deg);
 					*{
 						transition: .3s linear;
 					}
-				}
-			@media screen and (min-width:768px) {
-				width: 48px;
-				height: 48px;	
-			}
-			
+				}			
 	}
+	}
+	
 }

@@ -8,10 +8,9 @@ table {
 	}
 
 td {
-	border: 1px solid #CED9DB;
+	border: 1px solid $--bg-after;
 	padding: 20px;
 	text-align: left;
-	background-color: #FAFAFA;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
@@ -171,55 +170,55 @@ h1{
 	}
 .disease__body ol,
 .content ol{
-				margin-bottom: 37px;
-				padding-left: 0;
-				li{
-					
-					position: relative;
-					padding: 11px 0 11px 33px;
-					font-size: 14px;
-					line-height: 1.3em;
-					counter-increment: ol;
-					list-style-image: none;
-					list-style-type: none;
-					border-top: 0.8px solid $--bg-after;
-					@media screen and (min-width:768px) {
-						padding: 21px 0 21px 92px;
-						font-size: 18px;
-					}
-					@media screen and (min-width:768px) and (max-width:1199.9px){
-						
-						font-size: 18px;
-					}
-					@media screen and (min-width:1200px){
-						
-						font-size:21px;
-					}
+		margin-bottom: 37px;
+		padding-left: 0;
+		li{
+			
+			position: relative;
+			padding: 11px 0 11px 33px;
+			font-size: 14px;
+			line-height: 1.3em;
+			counter-increment: ol;
+			list-style-image: none;
+			list-style-type: none;
+			border-top: 0.8px solid $--bg-after;
+			@media screen and (min-width:768px) {
+				padding: 21px 0 21px 92px;
+				font-size: 18px;
+			}
+			@media screen and (min-width:768px) and (max-width:1199.9px){
+				
+				font-size: 18px;
+			}
+			@media screen and (min-width:1200px){
+				
+				font-size:21px;
+			}
 
-					&::before{
-						content: "0" counter(ol);
-						width: 23px;
-						height: 23px;
-						display: inline-block;
-						border-radius: 77px;
-						position: absolute;
-						left: 0px;
-						top: 11px;
-						font-size: 10px;
-						z-index: 33;
-						border: 1.5px solid rgba(255, 255, 255, 0.2);
-						line-height: 21px;
-						text-align: center;
-						@media screen and (min-width:768px) {							
-							width: 50px;
-							height: 50px;
-							top: 21px;
-							font-size: 17px;
-							line-height: 48px;
-							transform: translateY(-11px);
-						
-					}
-				}
+			&::before{
+				content: "0" counter(ol);
+				width: 23px;
+				height: 23px;
+				display: inline-block;
+				border-radius: 77px;
+				position: absolute;
+				left: 0px;
+				top: 11px;
+				font-size: 10px;
+				z-index: 33;
+				border: 1.5px solid rgba(255, 255, 255, 0.2);
+				line-height: 21px;
+				text-align: center;
+				@media screen and (min-width:768px) {							
+					width: 50px;
+					height: 50px;
+					top: 21px;
+					font-size: 17px;
+					line-height: 48px;
+					transform: translateY(-11px);
+				
+			}
+		}
 			}
 	}
 
@@ -285,27 +284,45 @@ h1{
 					}
 				}
 	}
-	blockquote{
+	blockquote{		
 		position: relative;
-		padding-top: 27px;
-    padding-bottom: 16px;
-    position: relative;
-    left: 0px;
-		@media screen and (min-width:1200px) {
-			padding: 0 0 0px 30px;
+		font-size: 12px;
+    line-height: 1.7em;
+		padding: 25px 26px;
+		color: $--white;
+		border-radius: 18px;
+		background-color: $--hover-blue;
+		@media screen and (min-width:1024px) {
+			padding-top: 40px;
+			padding-bottom: 18px;
 		}
 
 		&:before{
-			content: "";
-			display: inline-block;
-			width: 19px;
-			height: 13px;
-			background: transparent url(../images/blockquote-img.svg) no-repeat left top;
-			background-size: auto 13px;
+			content: "“";
+			font-size: 40px;
+			letter-spacing: -0.005em;
+			line-height: 0.9em;
 			position: absolute;
-			left: 0px;
-			top: 0px;
-			z-index: 32;
+			left: 10px;
+			top: 20px;
+			z-index: 33;
+			color: rgba(34, 56, 89, 0.2);
+			-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+		color: rgba(255, 255, 255, 0.2);;
+		@media screen and (min-width:1024px) {
+			font-size: 61px;
+		}
+			// content: "";
+			// display: inline-block;
+			// width: 19px;
+			// height: 13px;
+			// background: transparent url(../images/blockquote-img.svg) no-repeat left top;
+			// background-size: auto 13px;
+			// position: absolute;
+			// left: 0px;
+			// top: 0px;
+			// z-index: 32;
 		}
 			p{
 				margin-bottom: 0;
@@ -316,6 +333,33 @@ h1{
 					font-size: 25px;
 				}
 			}
+	}
+	blockquote{
+		border-radius: 20px;
+    position: relative;
+    left: 0px;
+    padding: 20px;
+    background: $--dark-blue;
+		margin: 0 0 32px 0;
+		@media screen and (min-width:1024px) {
+			margin: 0 0 60px 0;
+			padding: 60px;
+			border-radius: 30px;
+		}
+		a{
+			color: $--links-hover;
+			transition: .2s;
+			text-decoration: underline;
+			&:hover{
+			text-decoration: none;
+			}
+		}
+		p{
+			font-size: 14px;
+			@media screen and (min-width:768px) {
+				font-size: 21px;
+			}
+		}
 	}
 	// a:visited {
 	// 	color: $--green;

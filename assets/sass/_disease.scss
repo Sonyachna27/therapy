@@ -4,6 +4,7 @@
 		-webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
+		justify-content: space-between;
     border-radius: 20px;
 		display: flex;
     padding: 20px 20px 22px;
@@ -223,6 +224,7 @@ width: 100%;
 			width: 30px;
 			height: auto;
 			display: block;
+			margin: 0;
 		}
 		}
 		&__title{
@@ -298,6 +300,7 @@ width: 100%;
     min-height: 177px;
 		display: flex;
 		counter-increment: methodlink;
+		margin: 0 0 32px 0;
 		&:hover{
 			background: $--hover-blue;
 			.disease__method__top:before{
@@ -364,4 +367,153 @@ width: 100%;
 			}
 		}
 	}
+	&__text__button{
+		border-radius: 20px;
+    position: relative;
+    left: 0px;
+    padding: 20px;
+    background: $--dark-blue;
+		margin: 0 0 32px 0;
+		@media screen and (min-width:1024px) {
+			margin: 0 0 60px 0;
+			padding: 60px;
+			border-radius: 30px;
+		}
+		&__title{
+			font-size: 24px;
+			color: $--white;
+			font-weight: 600;
+			margin-bottom: 7px;
+			@media screen and (min-width:1024px) {
+				font-size: 35px;
+        line-height: 1.5em;
+        margin-bottom: 14px;
+        max-width: 560px;
+			}
+			strong{
+				font-weight: 600;
+			}
+		}
+		&__body{
+			p{				
+				@media screen and (min-width:1200px) {
+					padding-bottom: 30px;
+				}
+			}
+		}
+		&__link{
+			margin-top: 17px;
+			@media screen and (min-width:1200px) {
+				margin-top: 25px;
+			}
+		}
+
+	}
+	&__panel{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		flex-direction: column;
+		padding: 20px 10px;
+		@media screen and (min-width:768px) {
+			flex-direction: row;
+			padding: 40px 20px 20px 20px;
+		}
+	}
+	&__author{
+		display: flex;
+		gap: 10px;
+		width: 100%;
+		@media screen and (min-width:768px) {
+			max-width: 364px;
+		}
+		img{
+			border-radius: 100px;
+			width: 60px;
+			height: 100%;
+			aspect-ratio: 1;
+			object-fit: cover;
+		}
+		&__right{
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			width: calc(100% - 80px);
+			color: $--white;
+						
+			
+		
+		}
+		&__name{
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 1.35em;
+				padding-bottom: 7px;
+			}
+			&__label{
+				font-size: 12px;
+				letter-spacing: 0.01em;
+				line-height: 1.3em;
+			}
+	}
+	&__authorpanel__updated{
+		font-size: 12px;
+		color: $--date-color;
+	}
+	&__diploma{
+		&__items{
+			justify-content: center;
+		}
+		&__image{
+			img{
+				max-width: 100%;
+				width: 100%;
+			}
+		}
+	}
 }
+	.doctors-slider{
+			padding-bottom: 40px;
+		}
+		.inner__block{
+			padding-top: 25px;
+			padding-bottom: 90px;
+			@media screen and (min-width:1024px) {
+				padding-top: 60px;
+			}
+		&__title{
+			font-size: 32px;
+			line-height: 1.1em;
+			padding-bottom: 25px;
+			max-width: 310px;
+			color: $--white;
+			@media screen and (min-width:1024px) {
+        max-width: none;
+			}
+			@media screen and (min-width:1400px) {
+				font-size: 72px;
+			}
+			@media screen and (min-width:1024px) and (max-width:1023.9px){
+				font-size: 52px;
+			}
+		}
+		&__items{
+			display: flex;
+			gap: 10px;
+			overflow: hidden;
+			overflow-x: auto;
+			& .doctors__item, 
+			.disease__diploma__image{
+				max-width: 458px;
+				width: 100%;
+				min-width: 100%;
+				@media screen and (min-width:1200px) {
+				min-width: calc(25% - 6px);
+				}
+				@media screen and (min-width:768px) and (max-width:1199.9px) {
+				min-width: calc((100% / 3) - 6px);
+				}
+			}
+		}
+		}

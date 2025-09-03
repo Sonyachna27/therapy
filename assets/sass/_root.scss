@@ -15,9 +15,6 @@
 }
 
 
-
-
-
 //new project
 // 🔵 Blue / Cyan
 $--dark-blue: #223859;                 
@@ -31,7 +28,7 @@ $--accent-color: rgb(65, 244, 255);
 
 // ⚫ Dark / Background
 $--body-bg: #00112D;                   
-$--cost-bg: #303C52;                   
+$--cost-bg: #303C52;                  
 
 // ⚪ Light / Transparent
 $--white: #ffffff;
@@ -220,7 +217,7 @@ body{
 	}
 }
 .selected{
-
+	color: $--accent-color;
 }
 .breadcrumbs{	
 	margin: 20px 0 30px 0;
@@ -549,4 +546,33 @@ transform: rotate(180deg);
 	line-height: 1em;
 	font-weight: 500;
 	letter-spacing: -0.01em;
+}
+
+/* Весь скролбар */
+::-webkit-scrollbar {
+  width: 8px;   /* для вертикального */
+  height: 8px;  /* для горизонтального */
+}
+
+/* Доріжка (фон) */
+::-webkit-scrollbar-track {
+  background: $--bg-after;
+  border-radius: 10px;
+}
+
+/* Повзунок */
+::-webkit-scrollbar-thumb {
+  background: $--date-bg;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+/* При ховері */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 56, 89, 1);
+}
+/* Тонка смуга */
+html {
+  scrollbar-width: thin; /* auto | thin | none */
+  scrollbar-color: rgba(34, 56, 89, 0.8) rgba(255, 255, 255, 0.1);
 }

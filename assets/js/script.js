@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	doctorReviewsSliderInit();
 	doctorPublicSliderInit();
 	upDoctor();
+	accordionFunction();
 });
 
 const toggleMenu = () =>{
@@ -285,7 +286,6 @@ const doctorPublicSliderInit = () => {
   slidesPerView: 1.2,
   centeredSlides: true,
   spaceBetween: 10,
-  // loop: true,
 	observer: true,
   observeParents: true,
   autoHeight: true,
@@ -316,6 +316,8 @@ const doctorPublicSliderInit = () => {
 		}
 	});
 };
+
+
 
 const reviewsFormChecked = () =>{
 	const reviewForm =  document.querySelector(".reviewForm__wrap");
