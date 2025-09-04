@@ -50,6 +50,7 @@ $--tabs-bg-active: #6C7583;
 $--reviews-bg: rgba(108, 117, 131, 0.6980392157); 
 $--date-bg: rgba(217, 217, 217, 0.2); 
 $--black:rgb(0, 0, 0);
+$--faq-bg:rgba(255, 255, 255, 0.03);
 
 // 🌈 Gradient
 $--gradient: linear-gradient(133.4deg, #87CDB2 19%, #00ACB7 48.94%);
@@ -104,13 +105,7 @@ body{
 		padding-top: 60px;
 	}
 }
-.lang{
-	display: flex;
-	padding: 5px 15px;
-	justify-content: center;
-	align-items: center;
-	gap: 5px;
-}
+
 .btn{
     border: 1px solid transparent;
     left: 0px;
@@ -152,6 +147,7 @@ body{
 			top: 50%;
 			right: 10px;	
 			transform: .2s;		
+			z-index: 1;
 		}
 			&:before{
 			background-color:$--gradient;
@@ -162,7 +158,7 @@ body{
 				background: transparent url(../images/arrow-white.svg) center center / 10px no-repeat;
 				transition:background-color .2s;
 				@media screen and (min-width:1200px) {
-					background-size: 20px;
+					background-size: 18px;
 				}
 			}
 		&:hover{
@@ -205,6 +201,12 @@ body{
 		&:hover{
 			background-color: $--white;
 			color: $--dark-blue;
+			&:before{
+			background:$--dark-blue;
+		}
+		&::after{
+			filter: invert(0);
+		}
 		}
 		&:before{
 			background:$--white;
@@ -332,83 +334,6 @@ body{
 		}
 	}
 }
-// .project__pagination{
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 20px;
-// 	width: fit-content;
-// 	margin: 0 auto;
-// 	&__arrow{
-// 		display: flex;
-// 		align-items: center;
-// 		gap: 4px;
-// 		color: $--green;
-// 		font-size: 12px;
-// 		font-style: normal;
-// 		font-weight: 500;
-// 		line-height: normal;
-// 		opacity: .5;
-// 		transition: .3s linear;
-// 		@media screen and (min-width:768px) {
-// 			font-size: 14px;
-// 			gap: 10px;
-// 		}
-// 		&.active{
-// 			opacity: 1;
-// 			cursor: pointer;
-// 			&:hover{
-// 			color: $--gold;
-// 			svg path{
-// 				stroke: $--gold;
-// 			}
-// 			}
-// 		}
-// 		svg{
-// 			width: 15px;
-// 			height: 15px;
-// 			path{
-// 				transition: .3s linear;
-// 			}
-			
-// 		}
-
-// 	}
-// 	&__wrap{
-// 		display: flex;
-// 		align-items: center;
-// 		gap: 8px;
-// 		width: 100%;
-// 		justify-content: space-around;
-// 		span{
-// 			padding: 8px 8px;
-// 			background-color: $--white;
-// 			color: $--green;
-// 			border: 1px solid $--green;
-// 			border-radius: 50%;
-// 			text-align: center;
-// 			transition: .3s linear;
-// 			max-width: 32px;
-// 			width: 100%;
-// 			display: inline-block;
-// 			text-align: center;
-// 			min-width: 32px;
-// 			cursor: pointer;
-// 			&:hover{
-// 				background-color: $--green;
-// 				color: $--white;
-// 			}
-// 			@media screen and (min-width:768px) {
-// 				padding: 10px;
-// 				max-width: 40px;
-// 				min-width: 40px;
-// 			}
-// 			.active &{
-// 				background-color: $--green;
-// 				color: $--white;
-// 			}
-// 		}
-// 	}
-// }
 	.contact__form__messenger{
 			&-title{
 				text-align: center;
@@ -470,7 +395,6 @@ body{
 			}
 		
 	}
-
 	.contact__links{
 		display: flex;		
 		gap: 4px;
@@ -548,31 +472,91 @@ transform: rotate(180deg);
 	letter-spacing: -0.01em;
 }
 
-/* Весь скролбар */
 ::-webkit-scrollbar {
-  width: 8px;   /* для вертикального */
-  height: 8px;  /* для горизонтального */
+  width: 8px;   
+  height: 8px;  
 }
 
-/* Доріжка (фон) */
 ::-webkit-scrollbar-track {
   background: $--bg-after;
   border-radius: 10px;
 }
 
-/* Повзунок */
+
 ::-webkit-scrollbar-thumb {
   background: $--date-bg;
   border-radius: 10px;
   transition: background 0.3s;
 }
 
-/* При ховері */
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(34, 56, 89, 1);
 }
-/* Тонка смуга */
+
 html {
-  scrollbar-width: thin; /* auto | thin | none */
+  scrollbar-width: thin; 
   scrollbar-color: rgba(34, 56, 89, 0.8) rgba(255, 255, 255, 0.1);
 }
+.aligncenter{
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+	margin-bottom: 1.5em;
+}
+.alignright{
+	@media screen and (min-width:768px) {
+	float:right;
+	margin-left: 1.5em;
+	margin-top: 1.5em;
+	}
+}
+.alignleft{	
+		@media screen and (min-width:768px) {
+		float:left;
+		margin-left: 1.5em;
+		margin-top: 1.5em;
+	}
+}
+.inner__block{
+			padding-top: 25px;
+			padding-bottom: 90px;
+			@media screen and (min-width:1024px) {
+				padding-top: 60px;
+			}
+		&__title{
+			font-size: 32px;
+			line-height: 1.1em;
+			padding-bottom: 25px;
+			max-width: 310px;
+			color: $--white;
+			@media screen and (min-width:1024px) {
+        max-width: none;
+			}
+			@media screen and (min-width:1400px) {
+				font-size: 72px;
+			}
+			@media screen and (min-width:1024px) and (max-width:1023.9px){
+				font-size: 52px;
+			}
+		}
+		&__items{
+			display: flex;
+			gap: 10px;
+			overflow: hidden;
+			overflow-x: auto;
+			justify-content: flex-start;
+			& .doctors__item, 
+			.disease__diploma__image{
+				max-width: 458px;
+				width: 100%;
+				min-width: 100%;
+				@media screen and (min-width:1200px) {
+				min-width: calc(25% - 6px);
+				}
+				@media screen and (min-width:768px) and (max-width:1199.9px) {
+				min-width: calc((100% / 3) - 6px);
+				}
+			}
+		}
+		}

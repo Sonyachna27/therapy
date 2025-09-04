@@ -26,7 +26,7 @@
 					svg{
 						transform: rotate(90deg);
 						circle{
-						fill: #00acb7;
+						fill: $--link-color;
 					}
 					}
 					img{
@@ -41,25 +41,17 @@
 				font-size: 12px;
 				line-height: 1.2;				
 				border-radius: 20px;
-				display: -webkit-flex;
-				display: -ms-flexbox;
 				display: flex;
-				-webkit-flex-direction: column;
-				-ms-flex-direction: column;
 				flex-direction: column;
-				-webkit-justify-content: space-between;
-				-ms-flex-pack: justify;
 				justify-content: space-between;
 				text-align: center;
-				-webkit-align-items: center;
-				-ms-flex-align: center;
 				align-items: center;
 				gap: 10px;
 				height: 100%;
 				overflow: hidden;
 				position: relative;
 				background-color: $--tabs-bg;
-				color: rgba(255, 255, 255, 0.7);
+				color: $--date-color;
 			transition: .3s linear;
 				svg{
 					transition: .3s linear;
@@ -140,7 +132,7 @@
 	&__content{
 		&__wrap{
 			padding: 20px 10px 10px;
-			background: rgba(108, 117, 131, 0.7);
+			background: $--reviews-bg;
 			border-radius: 30px;
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -181,7 +173,7 @@
 			flex-direction: column;
 			gap: 8px;
 			padding: 10px;
-			background-color: rgba(217, 217, 217, 0.2);
+			background-color: $--date-bg;
 			border-radius: 15px;
 			overflow: hidden;
 			position: relative;
@@ -238,15 +230,9 @@
 				display: -webkit-flex;
 				display: -ms-flexbox;
 				display: flex;
-				-webkit-flex-wrap: wrap;
-				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
-				-webkit-flex-direction: column;
-				-ms-flex-direction: column;
 				flex-direction: column;
 				gap: 10px;
-				-webkit-flex: 1 0 0%;
-				-ms-flex: 1 0 0%;
 				flex: 1 0 0%;
 				@media screen and (min-width:768px) {
 					font-size: 18px;
@@ -268,11 +254,7 @@
 				}
 			}
 			&-list{
-				    display: -webkit-flex;
-						display: -ms-flexbox;
 						display: flex;
-						-webkit-flex-direction: column;
-						-ms-flex-direction: column;
 						flex-direction: column;
 						gap: 5px;
 						margin-top: auto;
@@ -285,28 +267,28 @@
 						@media screen and (min-width:1200px) {
 							align-items: center;
 						}
-						/* Webkit-браузери (Chrome, Safari, Edge) */
+						
 &::-webkit-scrollbar {
-  width: 1px; /* ширина вертикальної прокрутки */
+  width: 1px; 
 }
 
 &::-webkit-scrollbar-track {
-  background: transparent; /* фон треку */
+  background: transparent; 
 }
 
 &::-webkit-scrollbar-thumb {
-  background-color: $--accent-color; /* колір "паличка" */
-  border-radius: 10px; /* закруглення */
-  border: .5px solid transparent; /* опціонально для більш чіткого вигляду */
+  background-color: $--accent-color;
+  border-radius: 10px; 
+  border: .5px solid transparent; 
 }
 
 &::-webkit-scrollbar-thumb:hover {
-  background-color: $--accent-color; /* колір при наведенні */
+  background-color: $--accent-color; 
 }
 
 /* Firefox */
-  scrollbar-width: thin; /* тонка прокрутка */
-  scrollbar-color: $--accent-color transparent; /* колір thumb і track */
+  scrollbar-width: thin; 
+  scrollbar-color: $--accent-color transparent; 
 
 						
 				a{
@@ -319,11 +301,7 @@
 						font-weight: 500;
 						border-radius: 9px;
 						gap: 10px;
-						display: -webkit-inline-flex;
-						display: -ms-inline-flexbox;
 						display: inline-flex;
-						-webkit-align-items: center;
-						-ms-flex-align: center;
 						align-items: center;
 						transition: background-color 0.35s ease, color 0.35s ease;
 					@media screen and (min-width:368px) {
@@ -379,7 +357,7 @@
 				@media screen and (min-width:768px) {
 					pointer-events: none;
 					display: inline-block;
-					color: #fff;
+					color: $--white;
 					font-size: 13px;
 					line-height: 1.1;
 					gap: 18px;

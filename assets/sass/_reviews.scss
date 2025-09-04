@@ -21,11 +21,11 @@
 			display: flex;
 			gap: 25px;
 			&__count{
-				    color: #218296;
-						font-weight: 600;
-						font-size: 22.5px;
-						line-height: 1em;
-						position: relative;
+					color: #218296;
+					font-weight: 600;
+					font-size: 22.5px;
+					line-height: 1em;
+					position: relative;
 					@media screen and (min-width:1024px) {
 					color: $--white;
 					font-weight: normal;
@@ -37,10 +37,8 @@
 					font-size: 30px;
 				line-height: 1em;
 				position: relative;
+				}				
 				}
-				
-				}
-				
 			}
 			&__descr{
 				font-size: 11.5px;
@@ -50,7 +48,7 @@
 				margin-left: -5px;
 				@media screen and (min-width:1024px) {
 					font-size: 14px;
-        color: rgba(255, 255, 255, 0.6);
+        	color: rgba(255, 255, 255, 0.6);
 				}
 			}
 			&__stars{
@@ -65,7 +63,6 @@
 		}
 		.btn.btn-grey{
 			border-color: transparent;
-			// padding: 11px 57px 11px 20px;
 			font-size: 13px;
 			@media screen and (min-width:1024px) {
 				font-size: 14px;
@@ -74,7 +71,6 @@
 	}
 	&__slider{
 		padding: 27px 0;
-		
 		width: calc(100% + 10px);
 		margin-bottom: 20px;
 		position: relative;
@@ -119,7 +115,7 @@
     color: $--white;
 		*{
 			line-height: 1.2em;
-    color: rgb(255, 255, 255);
+    color: $--white;
     letter-spacing: 0.01em;
 		}
 		.withoutSlider &{
@@ -159,7 +155,7 @@
 	}
 
 	&__doc{
-		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		border-top: 1px solid $--bg-after;
     padding-top: 9px;
     margin-top: 11px;
 		display: flex;
@@ -168,16 +164,12 @@
 		&__label{
 			font-size: 12px;
     letter-spacing: 0.01em;
-    color: rgba(255, 255, 255, 0.8);
+    color: $--disease;
 		}
 		a.reviews__doc__doctor{
 			display: flex;
-			-webkit-justify-content: flex-start;
-			-ms-flex-pack: start;
 			justify-content: flex-start;
 			gap: 8px;
-			-webkit-align-items: center;
-			-ms-flex-align: center;
 			align-items: center;
 			font-size: 12px;
 			letter-spacing: 0.01em;
@@ -205,7 +197,7 @@
     max-height: 8.4em;
 		&.expanded {
 			-webkit-line-clamp: unset;
-			max-height: 1000px; /* або auto, якщо хочеш плавність */
+			max-height: 1000px; 
 		}
 		@media screen and (min-width:1024px) {
 			-webkit-line-clamp: 5;
@@ -255,7 +247,7 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     z-index: 33;
-		    -webkit-filter: grayscale(1) brightness(11);
+		 -webkit-filter: grayscale(1) brightness(11);
     filter: grayscale(1) brightness(11);
 		background-image: url(../images/ico_expand.svg);
 	}

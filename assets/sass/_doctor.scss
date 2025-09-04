@@ -161,11 +161,7 @@
     line-height: 17px;
     text-wrap: wrap;
     height: auto;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -197,7 +193,7 @@
 				font-weight: 600;
 				letter-spacing: -0.02em;
 				margin-right: -11px;
-    margin-left: 6px;
+   			margin-left: 6px;
 				@media screen and (min-width:1400px) {       
         line-height: 36px;
         border-radius: 12px;
@@ -241,30 +237,6 @@
 				width: 100%;
 				height: 100%;
 			}
-		// 	&:before{
-		// 		content: '';
-		// 		width: 32px;
-		// 		height: 32px;
-		// 		display: inline-block;
-		// 		border-radius: 70px;
-		// 		position: relative;
-		// 		left: 0px;
-		// 		position: absolute;
-		// 		left: 50%;
-		// 		top: 7px;
-		// 		-webkit-transform: translate(-50%, 0);
-		// 		transform: translate(-50%, 0);
-		// 		z-index: 33;
-		// 		background: url(../images/facebook-o.svg) center center / cover no-repeat;
-		// @media screen and (min-width:1024px) {
-		// 	left: 4px;
-    //     top: 50%;
-    //     -webkit-transform: translate(0, -50%);
-    //     transform: translate(0, -50%);
-    //     width: 39px;
-    //     height: 39px;
-		// }
-		// 	}
 		}
 	}
 	&__achievements,
@@ -281,7 +253,7 @@
 		flex-wrap: wrap;
 		@media screen and (min-width:768px) {
 			grid-column: 2 / 4;
-        grid-row: 4 / 5;
+        grid-row: 2 / 3;
 				gap: 20px;
 		}
 		@media screen and (max-width:767.9px) {
@@ -306,13 +278,11 @@
 				}
 			}
 			& .btn:not(.white-btn){
-				width:calc(100% - 58px);
+				width:calc(100% - 68px);
 			}
 		}
 	}
 	&__cost{
-		-webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     background: $--cost-bg;
     border-radius: 24px;
@@ -324,8 +294,6 @@
 		gap: 25px;
 		width: 100%;
 		@media screen and (min-width:1200px) {
-			-webkit-flex-direction: column;
-			-ms-flex-direction: column;
 			flex-direction: column;
 			max-width: 244px;
 			border-radius: 30px;
@@ -499,7 +467,7 @@
 			width: calc(50% - 2.5px);
 		&.active{
 			.btn.btn-grey{
-				 background-color: $--white;
+			background-color: $--white;
 			color: $--dark-blue;
 			&:before{
 				background: $--gradient;
@@ -546,9 +514,9 @@
 		img{
 			border-radius: inherit;
 			aspect-ratio: auto 690 / 730;
-			 width: 100%;
-  height: auto;
-  display: block;
+			width: 100%;
+			height: auto;
+			display: block;
 		}
 	}
 

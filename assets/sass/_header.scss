@@ -305,23 +305,22 @@
 		position: relative;
 		padding-left: 10px;
 		padding-right: 10px;
-		background-color: #000;
-		background-color: $--bg-smooth-color;
-		-webkit-backdrop-filter: blur(28px);
-		backdrop-filter: blur(28px);
 		transition: 0.2s;
 		z-index: 49;
 		position: relative;
+		@media screen and (min-width:1024px) {
+			background-color: $--bg-smooth-color;
+			-webkit-backdrop-filter: blur(28px);
+		backdrop-filter: blur(28px);
+		}
 
 		.fixed-header-nav &{
 			@media screen and (min-width:1024px) {
 				background:	$--bg-smooth;
 					ul > li > a{
-			color: $--white;
-		}
-			}
-		
-	
+					color: $--white;
+					}
+			}	
 		}
 		@media screen and (max-width:1023.9px) {
 				width: 100%;
@@ -329,6 +328,11 @@
 		nav{
 			@media screen and (max-width:1023.9px) {
 				padding: 10px 0;
+			}
+		}
+		a{
+			@media screen and (max-width:768px) {
+				white-space: break-spaces;
 			}
 		}
 		ul {
@@ -355,8 +359,7 @@
 							transform: translateY(-50%);
 						}
 					}
-				
-			}
+				}
 			&:has(ul) {
 				a:before{
 					transform: rotate(90deg);
@@ -368,8 +371,15 @@
 					color: $--white;
 					display: inline-block;
 					transition: background-size 300ms ease, text-decoration 300ms ease;
-					.home, .front-page &{
-						color: $--dark-blue;
+					.home &, .front-page &{
+						@media screen and (min-width:1024px) {
+							color: $--dark-blue;
+						}	
+						
+					}
+					.home .fixed-header-nav &, .front-page .fixed-header-nav &{
+						color: $--white;
+						
 					}
 					@media screen and (min-width:1024px) {
 						background-image: linear-gradient(
@@ -517,7 +527,7 @@
 								font-size: 13px;
 								&:hover{
 									text-decoration: none;
-								color: $--dark-blue;
+									color: $--dark-blue;
 							}
 								&:before{
 									display: none;									
@@ -527,6 +537,9 @@
 						&:hover{
 							background-color: $--white;
 							color: $--dark-blue;
+							a{
+								color: $--dark-blue;
+							}
 						}
 						a{
 							font-weight: 500;
@@ -584,8 +597,6 @@
 					}
 				}
 			}
-	}
-
-		
+	}		
 	}
 
