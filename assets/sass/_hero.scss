@@ -3,10 +3,14 @@
 	position:relative;
 	overflow: hidden;
 	&__container{
-		min-height: calc(100vh - 100px);
+		
 		display: flex;
 		flex-direction: column;	
-		justify-content: space-between;
+		
+		@media screen and (min-width:768px){
+			justify-content: space-between;
+			min-height: calc(100vh - 100px);
+		}
 	}
 	&__top{
 		position: relative;
@@ -141,7 +145,7 @@
 		backdrop-filter: blur(49px);
 		}
 		@media screen and (max-width:767.9px) {
-			margin-top: 30vw;
+			margin-top: 10vw;
 			gap: 20px;
 		}
 		&__body{
