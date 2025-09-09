@@ -2,7 +2,6 @@
 position: relative;
 cursor: pointer;
 display: flex;
-padding: 5px 15px;
 justify-content: center;
 align-items: center;
 gap: 5px;
@@ -39,15 +38,12 @@ visibility: visible;
     transition: color 0.35s ease, background-color 0.35s ease;
 		background-color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
-    color: rgba(255, 255, 255, 0.3);
 		.header &{
 			background-color: $--bg-smooth-color;
-			color: $--dark-blue;
 		}
 			.fixed-header-nav &{
 			@media screen and (min-width:1024px) {
 				background:	$--bg-smooth;					
-					color: $--white;
 			}	
 		}
 }

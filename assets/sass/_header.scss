@@ -278,6 +278,7 @@
 		flex-grow: 1;
 		display: flex;
 		align-items: center;
+		gap: 10px;
 		@media screen and (max-width:1023.9px) {
 			position: fixed;
 			flex-direction: column;
@@ -312,6 +313,10 @@
 			background-color: $--bg-smooth-color;
 			-webkit-backdrop-filter: blur(28px);
 		backdrop-filter: blur(28px);
+		}
+		@media screen and (min-width:1200px) {
+			padding-left: 21px;
+			padding-right: 21px;
 		}
 
 		.fixed-header-nav &{

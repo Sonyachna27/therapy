@@ -342,13 +342,21 @@
 		font-weight: 400;
 		line-height: 140%;
 		text-align: center;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20px;
 		@media screen and (min-width:1024px) {
 			font-size: 14px;
-			padding: 20px 0 40px 0;
+			padding: 20px 0 0 0;
 			text-align: left;
 		}
 			@media screen and (max-width:1023.9px) {
 			order: 4;
 		}
 	}
+}
+.copy{
+	font-size: 12px;
 }

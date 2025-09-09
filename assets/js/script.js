@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	reviewsMore();
 	linksMore();
 	showMoreContent();
-	requiredForm() ;
 	doctorReviewsSliderInit();
 	doctorPublicSliderInit();
-	upDoctor();
+	// upDoctor();
 	accordionFunction();
 });
 
@@ -53,47 +52,59 @@ const animationHeader = () =>{
     
   });
 }
+
 const handlePopup = () => {
   const html = document.documentElement;
- 
+
   const openPopup = () => {
-  document.querySelectorAll('[data-open]').forEach(button => {
-    button.addEventListener('click', () => {
-      const popupName = button.getAttribute('data-open');
-      const popupTarget = document.querySelector(`[data-popup="${popupName}"]`);
-      document.querySelectorAll('.popup.open-popup').forEach(popup => {
-        popup.classList.remove('open-popup');
-      });
+    document.querySelectorAll("[data-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const popupName = button.getAttribute("data-open");
+        const popupTarget = document.querySelector(`[data-popup="${popupName}"]`);
 
-      if (popupTarget) {
-        popupTarget.classList.add('open-popup');
-        html.classList.add('has-popup'); 
-      }
-    });
-  });
-};
+        document.querySelectorAll(".popup.open-popup").forEach((popup) => {
+          popup.classList.remove("open-popup");
+        });
 
- 
-  const closePopup = () => {
-    document.querySelectorAll('[data-close]').forEach(button => {
-      button.addEventListener('click', () => {
-        const popup = button.closest('.popup');
-        if (popup) {
-          popup.classList.remove('open-popup');
-        }
- 
-        const anyOpen = document.querySelector('.popup.open-popup');
-        if (!anyOpen) {
-          html.classList.remove('has-popup');
+        if (popupTarget) {
+          popupTarget.classList.add("open-popup");
+          html.classList.add("has-popup");
+
+          const wrapper = popupTarget.querySelector(".popup-wrapper");
+          const inner = popupTarget.querySelector(".popup__container");
+
+          if (wrapper && inner) {
+            wrapper.addEventListener("click", () => {
+              popupTarget.classList.remove("open-popup");
+              html.classList.remove("has-popup");
+            });
+
+            inner.addEventListener("click", (e) => e.stopPropagation());
+          }
         }
       });
     });
   };
- 
+
+  const closePopup = () => {
+    document.querySelectorAll("[data-close]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const popup = button.closest(".popup");
+        if (popup) {
+          popup.classList.remove("open-popup");
+        }
+
+        const anyOpen = document.querySelector(".popup.open-popup");
+        if (!anyOpen) {
+          html.classList.remove("has-popup");
+        }
+      });
+    });
+  };
+
   openPopup();
   closePopup();
- };
-
+};
 
 const accordionFunction = () => {
   const accordionItems = document.querySelectorAll(".accord-item");
@@ -318,7 +329,6 @@ const doctorPublicSliderInit = () => {
 };
 
 
-
 const reviewsFormChecked = () =>{
 	const reviewForm =  document.querySelector(".reviewForm__wrap");
 	if (reviewForm) {
@@ -519,52 +529,54 @@ const showMoreContent = () => {
     });
   });
 }
-const requiredForm = () => {
-  document.querySelectorAll('form').forEach(form => {
-    const checkbox = form.querySelector('input[type="checkbox"]');
-    const submitBtn = form.querySelector('input[type="submit"]');
-		if(!checkbox && !submitBtn) return
-    const submitWrap = form.querySelector('.submit__wrap');
-    submitWrap.classList.add('disabled');
-    checkbox.addEventListener('change', () => {
-      submitBtn.disabled = !checkbox.checked;
-      if (submitBtn.disabled) {
-        submitWrap.classList.add('disabled');
-      } else {
-        submitWrap.classList.remove('disabled'); 
+
+const upDoctor = () => {
+  const doctors = Array.from(document.querySelectorAll('.doctor'));
+  if (!doctors.length) return;
+
+  const recalc = () => {
+    const vw = window.innerWidth || document.documentElement.clientWidth;
+
+    doctors.forEach((doctor) => {
+      const imageBlock  = doctor.querySelector('.doctor__image');
+      const bottomBlock = doctor.querySelector('.doctor__bottom');
+      if (!imageBlock || !bottomBlock) return;
+      bottomBlock.style.marginTop = '0px';
+
+      if (vw < 768) return;
+
+      const imgRect    = imageBlock.getBoundingClientRect();
+      const bottomRect = bottomBlock.getBoundingClientRect();
+      const gap = bottomRect.top - imgRect.bottom;
+      if (gap > 0) {
+        bottomBlock.style.marginTop = `${-gap}px`;
+      }
+    });
+  };
+
+  recalc();
+
+  let rafId;
+  const onResize = () => {
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(recalc);
+  };
+  window.addEventListener('resize', onResize);
+  doctors.forEach((doctor) => {
+    doctor.querySelectorAll('.doctor__image img').forEach((img) => {
+      if (!img.complete) {
+        img.addEventListener('load', recalc, { once: true });
       }
     });
   });
 };
-const upDoctor = () =>{
-	if (document.querySelector('.doctor__image')) {
-  rearrangeDoctorLayout();
-  window.addEventListener('resize', () => {
-    requestAnimationFrame(rearrangeDoctorLayout);
-  });
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', upDoctor, { once: true });
+} else {
+  upDoctor();
 }
 
-function rearrangeDoctorLayout() {
-  const imageBlock = document.querySelector('.doctor__image');
-  const bottomBlock = document.querySelector('.doctor__bottom');
-
-  if (!imageBlock || !bottomBlock) return;
-
-  if (window.innerWidth >= 768) {
-    const imageBottom = imageBlock.offsetTop + imageBlock.offsetHeight;
-    const bottomTop = bottomBlock.offsetTop;
-
-    bottomBlock.style.marginTop = '0px';
-
-    if (imageBottom < bottomTop) {
-      bottomBlock.style.marginTop = `${imageBottom - bottomTop}px`;
-    }
-  } else {
-    bottomBlock.style.marginTop = '0px';
-  }
-}
-
-}
 
 /**
  * Woo JS

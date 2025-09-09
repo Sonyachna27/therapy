@@ -244,6 +244,11 @@
 			}
 			ul li{
 				font-size: 14px;
+				padding-bottom: 0;
+				margin-bottom: 8px;
+				&::before{
+					top: 7px;
+				}
 			}
 			p, div{
 				font-size: 15px;
