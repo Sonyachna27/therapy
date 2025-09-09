@@ -40,10 +40,12 @@ visibility: visible;
     pointer-events: none;
 		.header &{
 			background-color: $--bg-smooth-color;
+			color: $--dark-blue;
 		}
 			.fixed-header-nav &{
 			@media screen and (min-width:1024px) {
-				background:	$--bg-smooth;					
+				background:	$--bg-smooth;	
+				color: $--white;				
 			}	
 		}
 }
